@@ -1,1 +1,1 @@
-GRPS SEL Resource Hub v25 — sitewide link inventory and KSSN corrections. Replaces all three generic Kent ISD links with official KSSN school directory. See external_link_audit.csv for individually verified vs unverified destinations. Preserve approved design. Full external-link audit and live deployment QA remain incomplete.
+Version 31 — targeted content and framework corrections. Replace root index.html in GitHub. External link and browser acceptance audits remain separate.
