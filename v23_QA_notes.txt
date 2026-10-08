@@ -1,0 +1,1 @@
+New caregiver resources verified against public publisher pages. Structural catalog audit only; full browser interaction and all legacy destination verification remain pending.

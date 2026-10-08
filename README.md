@@ -1,1 +1,1 @@
-Version 21: expanded evidence-based resource finder with audience suitability and facilitated/independent-use distinction. Existing visual design preserved. Live destination click testing still required.
+Version 22: Fix all modal scrolling. Header stays visible; results scroll independently. Replace root index.html on GitHub Pages.
