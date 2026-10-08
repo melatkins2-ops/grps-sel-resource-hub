@@ -1,1 +1,1 @@
-Version 20: audience-specific finder mappings. Facilitator and intended audience are no longer conflated. No live URL verification claimed. Preserve approved visual design.
+Version 21: expanded evidence-based resource finder with audience suitability and facilitated/independent-use distinction. Existing visual design preserved. Live destination click testing still required.
