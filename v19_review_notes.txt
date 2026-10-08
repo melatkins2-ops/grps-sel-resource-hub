@@ -1,0 +1,1 @@
+V19 replaces misleading Finder aliases with a smaller curated catalog. Destinations are matched by source/topic; live HTTP access and every secondary/support pathway remain to be tested. No claim of full link verification.
