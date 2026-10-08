@@ -1,0 +1,1036 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GRPS SEL Resource Hub</title>
+<style>
+:root{
+  --navy:#003B70;
+  --navy2:#052B52;
+  --orange:#F26A21;
+  --orange2:#F8A23A;
+  --sky:#EAF2F8;
+  --ink:#102A43;
+  --muted:#5B6B7C;
+  --line:#DCE5EC;
+  --white:#fff;
+  --green:#2E7D32;
+  --yellow:#F3B61F;
+  --purple:#7651A8;
+  --teal:#0F7C86;
+  --soft:#F6F8FA;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.45}
+button,a{font:inherit}
+a{color:inherit}
+.site-header{position:sticky;top:0;z-index:50;background:var(--navy2);color:white;border-bottom:3px solid var(--orange)}
+.header-inner{max-width:1240px;margin:auto;display:flex;align-items:center;gap:24px;padding:14px 24px}
+.brand-lockup{display:flex;align-items:center;gap:18px;min-width:300px}
+.brand-lockup img.grps{height:54px;width:auto;background:white;border-radius:6px;padding:4px 8px}
+.brand-lockup img.sel{height:48px;width:auto;filter:none}
+.nav{display:flex;gap:20px;margin-left:auto;align-items:center;font-size:13px;font-weight:700;letter-spacing:.02em}
+.nav a{text-decoration:none;opacity:.92;white-space:nowrap}
+.nav a:hover{opacity:1;color:#fff;text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:6px}
+.wrap{max-width:1180px;margin:auto;padding:0 28px}
+.audience-strip{padding:20px 0 8px;background:white}
+.audience-label{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);margin-bottom:8px}
+.role-tabs{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.role-tabs button{background:white;border:0;border-right:1px solid var(--line);padding:12px 10px;font-weight:700;color:var(--ink);cursor:pointer}
+.role-tabs button:last-child{border-right:0}
+.role-tabs button.active{background:var(--navy);color:#fff}
+.hero{padding:36px 0 30px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:52px;line-height:1.02;margin:0 0 18px;color:var(--navy2);letter-spacing:-.03em}
+.hero h1 span{color:var(--orange)}
+.hero .tagline{font-size:24px;font-weight:600;color:#1A5DA8;font-style:italic;margin:0 0 12px}
+.hero p{font-size:18px;color:var(--muted);max-width:620px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:7px;padding:13px 18px;border:1px solid var(--navy);font-weight:800;text-decoration:none;cursor:pointer}
+.btn.primary{background:var(--navy);color:white}
+.btn.secondary{background:white;color:var(--navy)}
+.hero-panel{min-height:265px;border-radius:18px;background:linear-gradient(135deg,#F7FAFC,#EAF2F8);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;justify-content:center}
+.hero-panel .eyebrow{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--orange)}
+.hero-panel h3{font-size:25px;margin:8px 0}
+.hero-panel p{font-size:16px;margin:0}
+.hero-panel .role-result{margin-top:18px;font-weight:800;color:var(--navy)}
+
+.section{padding:38px 0}
+.section-title{text-align:center;font-size:31px;color:var(--navy2);margin:0 0 22px}
+.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.path-card{border:1px solid var(--line);border-radius:12px;padding:25px;min-height:195px;display:flex;flex-direction:column;background:#fff}
+.path-card h3{font-size:23px;margin:0 0 8px;color:var(--navy)}
+.path-card:nth-child(2) h3{color:var(--orange)}
+.path-card:nth-child(3) h3{color:var(--green)}
+.path-card p{color:var(--muted);margin:0 0 18px}
+.path-card .open{margin-top:auto;font-weight:800;color:var(--navy);cursor:pointer;background:none;border:0;text-align:left;padding:0}
+.frameworks{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.framework-card{background:white;border:1px solid var(--line);border-radius:14px;padding:28px}
+.framework-card h2{margin:0 0 10px;font-size:27px;color:var(--navy2)}
+.framework-card p{color:var(--muted)}
+
+.casel-official{margin-top:18px;text-align:center}
+.casel-official img{display:block;max-width:100%;width:410px;margin:0 auto;border-radius:4px}
+.casel-credit{font-size:12px;color:var(--muted);margin-top:10px}
+.small-link{display:inline-block;margin-top:14px;color:var(--navy);font-weight:800;text-decoration:none}
+.mtss-list{display:grid;gap:8px;margin-top:22px}
+.tier{display:grid;grid-template-columns:115px 1fr 32px;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.tier b{padding:15px 14px;text-align:center}
+.tier .desc{padding:12px 16px;font-size:14px}
+.tier .arrow{font-size:23px}
+.tier1 b{background:#E7F2E8;color:#275D2A}
+.tier2 b{background:#FFF4D9;color:#8A5C00}
+.tier3 b{background:#FDE8E2;color:#9A3412}
+.process{margin-top:16px;padding:14px 16px;background:#F7FAFC;border-radius:8px;font-weight:700;color:var(--navy2);font-size:14px}
+.monthly{padding-bottom:55px}
+.month-header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:18px}
+.month-header h2{margin:0;font-size:28px;color:var(--navy2)}
+.month-header p{margin:4px 0 0;color:var(--muted)}
+.tool-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tool{padding:21px;border-right:1px solid var(--line);min-height:170px}
+.tool:last-child{border-right:0}
+.tool .num{font-size:34px;font-weight:900;color:var(--navy);margin-bottom:6px}
+.tool:nth-child(2) .num{color:var(--orange)}
+.tool:nth-child(3) .num{color:var(--green)}
+.tool:nth-child(4) .num{color:var(--purple)}
+.tool h3{margin:0 0 8px;font-size:17px}
+.tool p{font-size:14px;color:var(--muted);margin:0 0 12px}
+.tool button{border:0;background:none;padding:0;color:var(--orange);font-weight:800;cursor:pointer}
+footer{background:var(--navy2);color:white;padding:26px 0}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.footer-msg{font-weight:700}
+.footer-msg span{color:var(--orange)}
+.footer-links{display:flex;gap:20px;font-size:13px;flex-wrap:wrap}
+.footer-links a{color:white;text-decoration:none}
+.overlay{display:none;position:fixed;inset:0;background:rgba(3,24,46,.6);z-index:80;padding:30px;overflow:auto}
+.overlay.show{display:block}
+.modal{max-width:980px;margin:40px auto;background:white;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.25);overflow:hidden}
+.modal-head{display:flex;justify-content:space-between;align-items:center;background:var(--navy2);color:white;padding:18px 22px}
+.modal-head h2{margin:0;font-size:24px}
+.close{background:none;border:0;color:white;font-size:28px;cursor:pointer}
+.modal-body{padding:24px}
+.question{font-weight:800;color:var(--navy2);margin:18px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);border-radius:99px;background:white;padding:9px 13px;cursor:pointer;font-weight:700}
+.chip.active{background:var(--navy);border-color:var(--navy);color:white}
+.results{margin-top:20px;display:grid;gap:12px}
+.result{border:1px solid var(--line);border-radius:10px;padding:16px}
+.result h4{margin:0 0 5px;color:var(--navy)}
+.result .meta{font-size:12px;color:var(--muted);margin-bottom:8px}
+.resource-link{display:inline-block;margin-top:12px;color:var(--orange);font-weight:800;text-decoration:none}.resource-link:hover{text-decoration:underline}
+.action-vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}
+.av-card{border:1px solid var(--line);border-radius:10px;padding:18px}
+.av-card h3{margin:0 0 8px}
+.av-card.action h3{color:var(--orange)}
+.av-card.intervention h3{color:var(--green)}
+.steps{counter-reset:s;display:grid;gap:10px;margin-top:18px}
+.steps div{padding:12px 14px;border-left:4px solid var(--navy);background:#F8FAFC}
+.steps div:before{counter-increment:s;content:counter(s) ". ";font-weight:900;color:var(--orange)}
+@media(max-width:900px){
+  .nav{display:none} .header-inner{justify-content:center} .brand-lockup{min-width:0}
+  .hero-grid,.framework-grid{grid-template-columns:1fr}
+  .role-tabs{grid-template-columns:repeat(2,1fr)}
+  .role-tabs button{border-bottom:1px solid var(--line)}
+  .path-grid{grid-template-columns:1fr}
+  .tool-grid{grid-template-columns:1fr 1fr}
+  .tool:nth-child(2){border-right:0}
+  .tool{border-bottom:1px solid var(--line)}
+}
+@media(max-width:600px){
+  .wrap{padding:0 18px} .brand-lockup img.grps{height:42px} .brand-lockup img.sel{height:40px}
+  .hero h1{font-size:40px} .hero .tagline{font-size:20px}
+  .role-tabs{grid-template-columns:1fr}
+  .tool-grid{grid-template-columns:1fr} .tool{border-right:0}
+  .action-vs{grid-template-columns:1fr}
+  .footer-grid{flex-direction:column;align-items:flex-start}
+}
+
+.audience-panel{margin:22px 0 8px;padding:24px;border:1px solid #dfe5ec;border-radius:18px;background:#fff}
+.audience-panel h3{margin:6px 0 16px;font-size:22px;line-height:1.3}
+.audience-priorities{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.mini-card{padding:14px;border-radius:12px;background:#F7FAFC;font-weight:700;font-size:14px}
+.audience-actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.audience-links{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.audience-links a{display:flex;flex-direction:column;gap:4px;padding:14px;border:1px solid #e4e8ee;border-radius:12px;text-decoration:none;color:inherit}
+.audience-links a:hover{border-color:#9aa7b5}
+.audience-links span{font-size:12px;color:var(--muted)}
+@media(max-width:900px){.audience-priorities{grid-template-columns:repeat(2,1fr)}.audience-links{grid-template-columns:1fr}}
+@media(max-width:560px){.audience-priorities{grid-template-columns:1fr}}
+
+
+.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.link-button{background:none;border:0;padding:0;cursor:pointer;font:inherit}
+@media(max-width:850px){.resource-grid{grid-template-columns:1fr}}
+
+
+.howto-hub{margin:42px auto;padding:30px;max-width:1180px;border-radius:20px;background:#F7FAFC}
+.howto-hub h2{margin:6px 0 20px}
+.howto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.howto-grid button{text-align:left;padding:18px;border:1px solid #dfe5ec;border-radius:14px;background:#fff;cursor:pointer;color:inherit}
+.howto-grid button:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(0,0,0,.06)}
+.howto-grid strong,.howto-grid span{display:block}.howto-grid span{margin-top:7px;color:var(--muted);line-height:1.45}
+@media(max-width:800px){.howto-grid{grid-template-columns:1fr}}
+
+
+/* v13 quality-control refinements */
+header,.site-header,.topbar{position:sticky;top:0;z-index:1000}
+.home-fab{
+  position:fixed;right:18px;bottom:18px;z-index:1200;
+  border:1px solid #dfe5ec;border-radius:999px;background:#fff;
+  padding:11px 15px;font-weight:800;cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,.12)
+}
+.home-fab:hover{transform:translateY(-1px)}
+.modal{overscroll-behavior:contain}
+.modal-content{max-height:88vh;overflow:auto}
+.result{overflow-wrap:anywhere}
+.resource-link{word-break:break-word}
+@media(max-width:700px){
+  body{font-size:16px}
+  h1{font-size:clamp(34px,9vw,52px)}
+  h2{font-size:clamp(26px,7vw,36px)}
+  .hero,.section,.howto-hub{padding-left:18px!important;padding-right:18px!important}
+  .home-fab{right:12px;bottom:12px;padding:10px 13px}
+  .modal-content{width:min(94vw,760px);max-height:90vh}
+  .btn,.chip{min-height:44px}
+}
+
+
+.validation-note{max-width:1180px;margin:8px auto 22px;padding:0 18px;font-size:12px;color:var(--muted);text-align:center}
+
+
+.maintenance-entry{max-width:1180px;margin:4px auto 18px;text-align:center}
+.maintenance-entry button{border:0;background:none;color:var(--muted);font-size:12px;text-decoration:underline;cursor:pointer}
+
+
+/* ===== V17 VISUAL REDESIGN ===== */
+:root{
+ --navy:#003B70; --navy2:#082A4A; --orange:#F26A21; --ink:#102A43;
+ --muted:#5E6E7E; --line:#D9E2EA; --soft:#F4F7F9; --cream:#FFF8F2;
+ --green:#32745A; --white:#fff;
+}
+body{background:#fff;color:var(--ink);font-size:16px}
+.site-header{background:#fff;color:var(--navy2);border-bottom:1px solid var(--line);box-shadow:0 2px 14px rgba(8,42,74,.05)}
+.header-inner{max-width:1280px;padding:11px 30px;gap:20px}
+.brand-lockup{gap:16px}
+.brand-lockup img.grps{height:50px;background:transparent;padding:0;border-radius:0}
+.brand-lockup img.sel{height:44px}
+.nav{gap:17px;font-size:12px}
+.nav a:hover{color:var(--navy);text-decoration-color:var(--orange)}
+.wrap{max-width:1200px;padding:0 34px}
+
+.audience-strip{padding:22px 0 18px;background:#fff}
+.audience-label{font-size:12px;letter-spacing:.14em;margin-bottom:11px}
+.role-tabs{display:flex;gap:8px;border:0;border-radius:0;overflow:visible;flex-wrap:wrap}
+.role-tabs button{border:1px solid var(--line)!important;border-radius:999px;padding:10px 15px;background:#fff;font-size:14px}
+.role-tabs button.active{background:var(--navy2);border-color:var(--navy2)!important;color:#fff}
+
+.audience-panel{max-width:1200px;margin:0 auto 0;padding:16px 34px;border:0;border-radius:0;background:#F7F9FB}
+.audience-panel .eyebrow{font-size:11px;letter-spacing:.12em}
+.audience-panel h3{font-size:19px;margin:4px 0 10px}
+.audience-priorities{grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
+.mini-card{background:#fff;border-left:3px solid var(--orange);border-radius:3px;padding:10px 12px;font-size:13px}
+.audience-actions{margin:12px 0}
+.audience-links a{background:#fff;border-radius:6px;padding:11px}
+
+.hero{position:relative;overflow:hidden;padding:76px 0 72px;border:0;background:var(--navy2);color:#fff}
+.hero:after{content:"";position:absolute;width:480px;height:480px;border:90px solid rgba(242,106,33,.16);border-radius:50%;right:-160px;top:-180px}
+.hero:before{content:"";position:absolute;width:220px;height:220px;background:rgba(255,255,255,.04);border-radius:50%;right:230px;bottom:-120px}
+.hero-grid{position:relative;z-index:2;grid-template-columns:1.25fr .75fr;gap:68px}
+.hero h1{font-size:64px;line-height:.98;color:#fff;max-width:760px;margin-bottom:24px}
+.hero h1 span{display:inline;color:#FF9A5D}
+.hero .tagline{font-size:25px;color:#fff;font-style:normal;font-weight:700;letter-spacing:.01em}
+.hero p{font-size:18px;color:#DDE8F1;max-width:660px}
+.hero .btn.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.hero .btn.secondary{background:transparent;border-color:#AFC3D4;color:#fff}
+.hero-panel{min-height:0;background:transparent;border:0;border-left:1px solid rgba(255,255,255,.25);border-radius:0;padding:10px 0 10px 30px}
+.hero-panel .eyebrow{color:#FFB07D}
+.hero-panel h3{font-size:27px;color:#fff}
+.hero-panel p{color:#DDE8F1}
+.hero-panel .role-result{color:#fff;font-size:14px;border-top:1px solid rgba(255,255,255,.18);padding-top:16px}
+
+.section{padding:72px 0}
+.section-title{text-align:left;font-size:38px;letter-spacing:-.025em;margin-bottom:30px}
+.path-grid{grid-template-columns:1.1fr 1fr 1fr;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.path-card{border:0;border-right:1px solid var(--line);border-radius:0;padding:34px 30px 34px 0;margin-right:30px;min-height:230px}
+.path-card:last-child{border-right:0;margin-right:0}
+.path-card:before{display:block;font-size:12px;font-weight:900;letter-spacing:.14em;color:var(--orange);margin-bottom:22px}
+.path-card:nth-child(1):before{content:"01 · DISCOVER"}
+.path-card:nth-child(2):before{content:"02 · PROBLEM SOLVE"}
+.path-card:nth-child(3):before{content:"03 · PLAN SUPPORT"}
+.path-card h3,.path-card:nth-child(2) h3,.path-card:nth-child(3) h3{font-size:27px;color:var(--navy2)}
+.path-card p{font-size:16px;max-width:330px}
+.path-card .open{color:var(--navy2);border-bottom:2px solid var(--orange);padding-bottom:3px;width:max-content}
+
+.howto-hub{max-width:1200px!important;margin:0 auto!important;padding:0 34px 72px!important}
+.howto-hub>.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--orange);font-weight:900}
+.howto-hub>h2{font-size:34px!important;color:var(--navy2);margin:7px 0 24px!important}
+.howto-grid{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:14px!important}
+.howto-grid button{min-height:130px!important;border:0!important;border-top:4px solid var(--navy)!important;border-radius:0!important;background:var(--soft)!important;padding:20px!important;text-align:left!important}
+.howto-grid button:nth-child(2){border-top-color:var(--orange)!important}
+.howto-grid button:nth-child(3){border-top-color:var(--green)!important}
+.howto-grid strong{font-size:18px}
+.howto-grid span{margin-top:8px;line-height:1.45}
+
+.frameworks{background:#F2F5F7;border:0;padding:82px 0}
+.framework-grid{gap:56px;align-items:start}
+.framework-card{background:transparent;border:0;border-radius:0;padding:0}
+.framework-card h2{font-size:34px;letter-spacing:-.02em}
+.framework-card p{font-size:17px;max-width:540px}
+.casel-official{background:#fff;padding:22px;margin-top:22px;border-radius:10px;box-shadow:0 8px 28px rgba(8,42,74,.07)}
+.casel-official img{width:370px}
+.mtss-list{gap:0;border-top:1px solid #C9D5DE;margin-top:28px}
+.tier{grid-template-columns:110px 1fr 28px;border:0;border-bottom:1px solid #C9D5DE;border-radius:0}
+.tier b{background:transparent!important;color:var(--navy2)!important;text-align:left;padding-left:0}
+.tier .desc{padding:18px 10px}
+.process{margin-top:24px;background:var(--navy2);color:#fff;border-radius:4px;line-height:1.6}
+
+.monthly{padding:78px 0 88px}
+.month-header{align-items:start;margin-bottom:30px}
+.month-header h2{font-size:36px;letter-spacing:-.02em}
+.month-header h2 span{display:block;margin-top:7px!important}
+.month-header p{font-size:16px}
+.tool-grid{border:0;border-radius:0;gap:18px;overflow:visible}
+.tool{border:1px solid var(--line)!important;border-radius:8px;padding:24px;min-height:220px;background:#fff}
+.tool .num{font-size:13px;letter-spacing:.12em;color:var(--orange)!important}
+.tool h3{font-size:20px;margin-top:18px}
+.tool p{font-size:15px}
+.tool button{margin-top:12px;color:var(--navy2);border-bottom:2px solid var(--orange);padding-bottom:3px}
+
+footer{padding:42px 0 24px}
+.footer-msg{font-size:20px}
+footer .result{background:rgba(255,255,255,.07)!important;border-color:rgba(255,255,255,.15)!important;color:#fff!important}
+footer .result .meta,.validation-note{color:#C7D5E1!important}
+.validation-note{text-align:center;font-size:12px;margin:18px auto}
+.maintenance-entry button{color:#B7C7D5!important}
+
+.modal{border-radius:8px}
+.modal-head{background:var(--navy2)}
+.result{border-radius:6px}
+.chip{border-radius:999px}
+
+@media(max-width:900px){
+ .hero{padding:56px 0}.hero h1{font-size:50px}.hero-grid{gap:30px}
+ .hero-panel{border-left:0;border-top:1px solid rgba(255,255,255,.25);padding:24px 0 0}
+ .path-grid{grid-template-columns:1fr;border-bottom:0}
+ .path-card{border-right:0;border-bottom:1px solid var(--line);margin:0;padding:28px 0}
+ .howto-grid{grid-template-columns:1fr!important}
+ .audience-priorities{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+ .wrap,.audience-panel,.howto-hub{padding-left:20px!important;padding-right:20px!important}
+ .hero h1{font-size:42px}
+ .role-tabs{display:grid;grid-template-columns:1fr 1fr}
+ .role-tabs button{font-size:13px}
+ .section{padding:54px 0}
+ .section-title{font-size:32px}
+ .tool-grid{gap:12px}
+}
+
+
+.skip-link{position:fixed;left:12px;top:-60px;z-index:9999;background:#fff;color:#082A4A;padding:12px 16px;border:2px solid #F26A21;border-radius:4px;font-weight:800}
+.skip-link:focus{top:12px}
+a:focus-visible,button:focus-visible{outline:3px solid #F26A21;outline-offset:3px}
+
+</style>
+</head>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-lockup">
+      <img class="grps" src="data:image/png;base64,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" alt="Grand Rapids Public Schools logo">
+      <img class="sel" src="data:image/png;base64,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" alt="GRPS Social and Emotional Learning logo">
+    </div>
+    <nav class="nav">
+      <a href="#home">HOME</a><a href="#pathways">FIND A RESOURCE</a><a href="#pathways">EDUCATORS</a>
+      <a href="#frameworks">MTSS</a><a href="#pathways">SCHOLARS</a><a href="#pathways">FAMILIES</a>
+      <a href="#frameworks">SCHOOLWIDE SEL</a><a href="#monthly">ADULT SEL</a><a href="#footer">ABOUT</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" id="home">
+  <section class="audience-strip">
+    <div class="wrap">
+      <div class="audience-label">Start here — I am a...</div>
+      <div class="role-tabs" id="roleTabs">
+        <button class="active" data-role="Educator">Educator</button>
+        <button data-role="School Leader">School Leader</button>
+        <button data-role="Scholar">Scholar</button>
+        <button data-role="Family/Caregiver">Family/Caregiver</button>
+        <button data-role="Student Support Staff">Student Support Staff</button>
+        <button data-role="Community Partner">Community Partner</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="audienceGuide"></div>
+<section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Social &amp;<br>Emotional Learning <span>+ MTSS</span></h1>
+        <div class="tagline">Hope. Belonging. Purpose. Support.</div>
+        <p>Find practical SEL tools, scholar-support pathways, and MTSS resources in one place.</p>
+        <div class="cta-row">
+          <button class="btn primary" onclick="openFinder()">FIND A RESOURCE →</button>
+          <button class="btn secondary" onclick="openMTSS()">HOW MTSS WORKS →</button>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="eyebrow">Your personalized entry point</div>
+        <h3 id="roleWelcome">Welcome, Educator</h3>
+        <p id="roleCopy">Find classroom-ready strategies, SEL lessons, intervention tools, and professional learning resources.</p>
+        <div class="role-result" id="roleResult">Recommended: Classroom Tools · Resource Finder · MTSS Support</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pathways">
+    <div class="wrap">
+      <h2 class="section-title">What do you need today?</h2>
+      <div class="path-grid">
+        <article class="path-card">
+          <h3>Find a Resource</h3>
+          <p>Search by need, audience, grade band and time available. Get to a usable tool without browsing multiple pages.</p>
+          <button class="open" onclick="openFinder()">OPEN RESOURCE FINDER →</button>
+        </article>
+        <article class="path-card">
+          <h3>Support a Scholar</h3>
+          <p>Start with what you are seeing, identify the likely barrier, and connect the need to an appropriate support.</p>
+          <button class="open" onclick="openSupport()">START PROBLEM-SOLVING →</button>
+        </article>
+        <article class="path-card">
+          <h3>MTSS Center</h3>
+          <p>Understand the GRPS problem-solving cycle, tiers of support, intervention planning and progress monitoring.</p>
+          <button class="open" onclick="openMTSS()">ENTER MTSS CENTER →</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  
+<section class="howto-hub">
+ <div class="eyebrow">HOW TO USE THIS HUB</div>
+ <h2>Start with what you need.</h2>
+ <div class="howto-grid">
+  <button onclick="openFinder()"><strong>1. Find a Resource</strong><span>Browse all tools for a goal, then narrow by audience if useful.</span></button>
+  <button onclick="openSupport()"><strong>2. Support a Scholar</strong><span>Work through the concern, what to examine, next moves and matched resources.</span></button>
+  <button onclick="openMTSS()"><strong>3. Use MTSS Problem Solving</strong><span>Define the need, match an intervention, monitor response and decide what happens next.</span></button>
+ </div>
+</section>
+
+<section class="section frameworks" id="frameworks">
+    <div class="wrap framework-grid">
+      <article class="framework-card">
+        <h2>The CASEL Framework</h2>
+        <p>The CASEL Wheel places the five core SEL competencies within the settings where scholars live and learn: classrooms, schools, families/caregivers and communities.</p>
+        <div class="casel-official">
+          <img src="https://www.pgcps.org/globalassets/offices/psychological-services/images/sel-framework.png"
+               alt="CASEL SEL Framework wheel showing the five SEL competencies and key settings">
+          <div class="casel-credit">CASEL SEL Framework ©2020 CASEL. All rights reserved.</div>
+        </div>
+        <a class="small-link" href="https://casel.org/what-is-sel/" target="_blank" rel="noopener">EXPLORE THE INTERACTIVE CASEL FRAMEWORK →</a>
+      </article>
+
+      <article class="framework-card">
+        <h2>MTSS: Support for Every Scholar</h2>
+        <p>A framework for continuous growth, problem-solving and support. Start with the need—not the tier.</p>
+        <div class="mtss-list">
+          <div class="tier tier1"><b>TIER 1<br><small>Universal</small></b><div class="desc"><strong>All Scholars</strong><br>Strong core instruction, SEL, positive relationships and schoolwide systems.</div><div class="arrow">→</div></div>
+          <div class="tier tier2"><b>TIER 2<br><small>Targeted</small></b><div class="desc"><strong>Some Scholars</strong><br>Additional targeted supports matched to identified needs.</div><div class="arrow">→</div></div>
+          <div class="tier tier3"><b>TIER 3<br><small>Intensive</small></b><div class="desc"><strong>Few Scholars</strong><br>Individualized, intensive supports and coordinated resources.</div><div class="arrow">→</div></div>
+        </div>
+        <div class="process">DEFINE NEED → UNDERSTAND → MATCH → IMPLEMENT → MONITOR → DECIDE</div>
+        <button class="btn secondary" style="margin-top:16px" onclick="openMTSS()">ENTER MTSS CENTER →</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="section monthly" id="monthly">
+    <div class="wrap">
+      <div class="month-header">
+        <div>
+          <h2>This Month: Belonging & Connection <span style="font-size:12px;font-weight:500;color:var(--muted)">· Reviewed October 2026</span></h2>
+          <p>Four practical tools for strengthening belonging, relationships and readiness to learn.</p>
+        </div>
+        <button class="btn secondary" onclick="openFinder()">VIEW ALL TOOLS →</button>
+      </div>
+      <div class="tool-grid">
+        <article class="tool"><div class="num">01</div><h3>Build Belonging</h3><p>Short routines that help scholars feel known, welcomed and connected.</p><button onclick="showTool('Build Belonging')">VIEW TOOL →</button></article>
+        <article class="tool"><div class="num">02</div><h3>Shared Agreements</h3><p>Create clear, student-centered expectations for how the community will learn together.</p><button onclick="showTool('Shared Agreements')">VIEW TOOL →</button></article>
+        <article class="tool"><div class="num">03</div><h3>Three Signature Practices</h3><p>Use inclusive welcomes, engaging strategies and intentional closings.</p><button onclick="showTool('Three Signature Practices')">VIEW TOOL →</button></article>
+        <article class="tool"><div class="num">04</div><h3>Regulate & Reset</h3><p>Simple strategies for naming emotions, regulating and returning to learning.</p><button onclick="showTool('Regulate & Reset')">VIEW TOOL →</button></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer">
+  <div class="wrap footer-grid">
+    <div class="footer-msg">Every Scholar. Every Day. <span>We're in this together.</span></div>
+    <div class="footer-links"><a href="https://grps.org/departments/sel/" target="_blank" rel="noopener">GRPS SEL</a><a href="https://grps.org/departments/sel/sel-resources/" target="_blank" rel="noopener">SEL Resources</a><a href="https://grps.org" target="_blank" rel="noopener">GRPS Website</a></div>
+  </div>
+
+<div class="result" style="margin:18px auto;max-width:1180px;background:#F7FAFC">
+  <strong>Can’t find what you need?</strong>
+  <div class="meta">Use Find a Resource for tools by goal, or Support a Scholar for a structured problem-solving pathway.</div>
+</div>
+
+
+<div class="validation-note" aria-label="Resource validation note">
+  Resource links last reviewed: October 2026. External sites may update their URLs.
+</div>
+
+
+<div class="maintenance-entry">
+  <button onclick="openMaintenance()">RESOURCE HUB MAINTENANCE</button>
+</div>
+
+</footer>
+
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head"><h2 id="modalTitle">Resource Finder</h2><button class="close" onclick="closeModal()">×</button></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const roleData={
+  "Educator":["Find classroom-ready strategies, SEL lessons, intervention tools, and professional learning resources.","Recommended: Classroom Tools · Resource Finder · MTSS Support"],
+  "School Leader":["Access schoolwide SEL implementation, MTSS systems, team tools, data-review supports and professional learning.","Recommended: Schoolwide SEL · MTSS Center · Implementation Tools"],
+  "Scholar":["Find strategies for emotions, relationships, stress, focus and getting help from a trusted adult.","Recommended: Scholar Zone · Feelings & Regulation · Get Support"],
+  "Family/Caregiver":["Find practical activities, conversation guides and pathways to school and community supports.","Recommended: Family Resources · SEL at Home · Get Support"],
+  "Student Support Staff":["Use problem-solving tools, intervention resources, progress monitoring and student-support pathways.","Recommended: Support a Scholar · Intervention Finder · MTSS Meeting Toolkit"],
+  "Community Partner":["Understand the GRPS SEL/MTSS approach and connect services to identified scholar and family needs.","Recommended: Partnership Resources · MTSS Overview · Family Supports"]
+};
+document.querySelectorAll('#roleTabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#roleTabs button').forEach(x=>x.classList.remove('active')); b.classList.add('active');
+  const r=b.dataset.role; document.getElementById('roleWelcome').textContent='Welcome, '+r;
+  document.getElementById('roleCopy').textContent=roleData[r][0];
+  document.getElementById('roleResult').textContent=roleData[r][1];
+}));
+function openModal(title,body){document.getElementById('modalTitle').textContent=title;document.getElementById('modalBody').innerHTML=body;document.getElementById('overlay').classList.add('show')}
+function closeModal(){document.getElementById('overlay').classList.remove('show')}
+const resources=[{"name":"Connection Conversation Starters","need":["Build Relationships"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"Right Now","meta":"Low-prep prompts for building trust, connection and communication","url":"https://grps-cdn.fxbrt.com/downloads/social_emotional_learning/community_building_questions_for_scholars.pdf","source":"GRPS","why":{"Build Relationships":"Supports connection, communication, trust, or relationship repair."}},{"name":"Relationship Check-In","need":["Build Relationships"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Reflect on connection, support and next steps","url":"https://grps-cdn.fxbrt.com/downloads/social_emotional_learning/community_building_questions_for_scholars.pdf","source":"GRPS","why":{"Build Relationships":"Supports connection, communication, trust, or relationship repair."}},{"name":"Strengths & Appreciation Routine","need":["Build Relationships"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Notice strengths · express appreciation · reinforce belonging","url":"https://grps-cdn.fxbrt.com/downloads/social_emotional_learning/community_building_questions_for_scholars.pdf","source":"GRPS","why":{"Build Relationships":"Supports connection, communication, trust, or relationship repair."}},{"name":"Three Signature Practices","need":["Build Relationships","Build Belonging","Teach SEL"],"aud":["Educator","School Leader","Student Support Staff"],"grade":"All","time":"5–15 Minutes","meta":"Inclusive welcomes · engaging strategies · intentional closings","url":"https://signaturepractices.casel.org/practices/","source":"CASEL","why":{"Build Relationships":"Supports connection, communication, trust, or relationship repair.","Build Belonging":"Strengthens connection, voice, inclusion, or a sense of being known and valued.","Teach SEL":"Supports explicit SEL instruction, practice, reflection, or integration into everyday routines."}},{"name":"Mentoring / Caring-Adult Check-In","need":["Build Relationships","Build Belonging","Support Attendance"],"aud":["Educator","Student Support Staff","Scholar"],"grade":"3–12","time":"Ongoing Support","meta":"Connection · belonging · persistence · attendance","url":"https://www.attendanceworks.org/resources/toolkits/mentoring-elementary-success-mentors/what-does-an-elementary-success-mentor-do/work-with-staff-to-provide-support-services-and-intervention/","source":"Attendance Works","why":{"Build Relationships":"Supports connection, communication, trust, or relationship repair.","Build Belonging":"Strengthens connection, voice, inclusion, or a sense of being known and valued.","Support Attendance":"Helps identify attendance root causes or match barriers to an intervention and monitoring plan."}},{"name":"Name It, Regulate It","need":["Manage Emotions"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"Right Now","meta":"Identify emotion · choose a regulation strategy · reset","url":"https://grps-cdn.fxbrt.com/downloads/social_emotional_learning/grounding_technique_cards.pdf","source":"GRPS","why":{"Manage Emotions":"Builds emotion identification, regulation, coping, or co-regulation skills."}},{"name":"Breathing & Grounding Reset","need":["Manage Emotions"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"Right Now","meta":"Breathing · grounding · return to readiness","url":"https://grps-cdn.fxbrt.com/downloads/social_emotional_learning/grounding_technique_cards.pdf","source":"GRPS","why":{"Manage Emotions":"Builds emotion identification, regulation, coping, or co-regulation skills."}},{"name":"Emotion Reflection Guide","need":["Manage Emotions"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Notice triggers · body cues · strategies that help","url":"https://grps-cdn.fxbrt.com/downloads/social_emotional_learning/grounding_technique_cards.pdf","source":"GRPS","why":{"Manage Emotions":"Builds emotion identification, regulation, coping, or co-regulation skills."}},{"name":"Mood Meter / Emotion Check-In","need":["Manage Emotions","Teach SEL"],"aud":["Educator","Student Support Staff","Scholar","Family/Caregiver"],"grade":"All","time":"Right Now","meta":"Naming emotions · self-awareness · regulation","url":"https://grps.org/departments/sel/sel-resources/","source":"GRPS SEL","why":{"Manage Emotions":"Builds emotion identification, regulation, coping, or co-regulation skills.","Teach SEL":"Supports explicit SEL instruction, practice, reflection, or integration into everyday routines."}},{"name":"Adult Regulation Reset","need":["Manage Emotions","Adult SEL"],"aud":["Educator","School Leader","Student Support Staff"],"grade":"Adult","time":"Right Now","meta":"Adult SEL · regulation · modeling","url":"https://grps.org/departments/sel/sel-resources/","source":"GRPS SEL","why":{"Manage Emotions":"Builds emotion identification, regulation, coping, or co-regulation skills.","Adult SEL":"Builds adult self-awareness, regulation, relational practice, or modeling of SEL."}},{"name":"Belonging Check-In","need":["Build Belonging"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"Right Now","meta":"Who feels connected? What helps? What would strengthen belonging?","url":"https://grps-cdn.fxbrt.com/downloads/social_emotional_learning/community_building_questions_for_scholars.pdf","source":"GRPS","why":{"Build Belonging":"Strengthens connection, voice, inclusion, or a sense of being known and valued."}},{"name":"Welcome & Connection Routine","need":["Build Belonging"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Intentional welcome · connection · inclusive participation","url":"https://grps-cdn.fxbrt.com/downloads/social_emotional_learning/community_building_questions_for_scholars.pdf","source":"GRPS","why":{"Build Belonging":"Strengthens connection, voice, inclusion, or a sense of being known and valued."}},{"name":"Belonging Reflection & Next Step","need":["Build Belonging"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Reflect on belonging · identify one action to strengthen connection","url":"https://grps-cdn.fxbrt.com/downloads/social_emotional_learning/community_building_questions_for_scholars.pdf","source":"GRPS","why":{"Build Belonging":"Strengthens connection, voice, inclusion, or a sense of being known and valued."}},{"name":"Shared Agreements","need":["Build Belonging","Support Behavior","Teach SEL"],"aud":["Educator","School Leader","Student Support Staff"],"grade":"All","time":"Lesson","meta":"Community expectations · voice · belonging","url":"https://grps.org/departments/sel/sel-resources/","source":"GRPS SEL","why":{"Build Belonging":"Strengthens connection, voice, inclusion, or a sense of being known and valued.","Support Behavior":"Helps define behavior, teach or reinforce skills, or implement a positive behavior support.","Teach SEL":"Supports explicit SEL instruction, practice, reflection, or integration into everyday routines."}},{"name":"Family-School Connection Plan","need":["Build Belonging","Support a Family"],"aud":["Family/Caregiver","Educator","Student Support Staff","School Leader"],"grade":"K–12","time":"Ongoing Support","meta":"Strengthen scholar-family-school connection and communication","url":"https://grps.org/departments/sel/sel-resources/","source":"GRPS SEL","why":{"Build Belonging":"Strengthens connection, voice, inclusion, or a sense of being known and valued.","Support a Family":"Supports collaborative family partnership, home-school connection, or navigation to supports."}},{"name":"Scholar Connection Map","need":["Build Belonging"],"aud":["Scholar","Educator","Student Support Staff","Family/Caregiver"],"grade":"3–12","time":"5–15 Minutes","meta":"Identify trusted adults, peers and spaces that support belonging","url":"https://grps-cdn.fxbrt.com/downloads/social_emotional_learning/community_building_questions_for_scholars.pdf","source":"GRPS","why":{"Build Belonging":"Strengthens connection, voice, inclusion, or a sense of being known and valued."}},{"name":"Conflict Reflection Questions","need":["Resolve Conflict"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"Right Now","meta":"What happened? Who was affected? What is needed next?","url":"https://grps.org/departments/sel/sel-resources/","source":"IIRP","why":{"Resolve Conflict":"Provides a structured way to understand perspectives, repair harm, and determine next steps."}},{"name":"Problem-Solve Together Protocol","need":["Resolve Conflict"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Listen · understand perspectives · identify a workable next step","url":"https://grps.org/departments/sel/sel-resources/","source":"IIRP","why":{"Resolve Conflict":"Provides a structured way to understand perspectives, repair harm, and determine next steps."}},{"name":"Repair & Reconnect Plan","need":["Resolve Conflict"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Repair harm · restore trust · plan for next time","url":"https://grps.org/departments/sel/sel-resources/","source":"IIRP","why":{"Resolve Conflict":"Provides a structured way to understand perspectives, repair harm, and determine next steps."}},{"name":"Restorative Conversation","need":["Resolve Conflict","Support Behavior","Build Relationships"],"aud":["Educator","Student Support Staff","School Leader"],"grade":"All","time":"5–15 Minutes","meta":"Repair harm · relationships · problem-solving","url":"https://grps.org/departments/sel/sel-resources/","source":"IIRP","why":{"Resolve Conflict":"Provides a structured way to understand perspectives, repair harm, and determine next steps.","Support Behavior":"Helps define behavior, teach or reinforce skills, or implement a positive behavior support.","Build Relationships":"Supports connection, communication, trust, or relationship repair."}},{"name":"Peer Conflict Problem-Solving Protocol","need":["Resolve Conflict","Teach SEL"],"aud":["Educator","Student Support Staff","Scholar"],"grade":"3–12","time":"5–15 Minutes","meta":"Listen · identify needs · agree on next steps","url":"https://grps.org/departments/sel/sel-resources/","source":"IIRP","why":{"Resolve Conflict":"Provides a structured way to understand perspectives, repair harm, and determine next steps.","Teach SEL":"Supports explicit SEL instruction, practice, reflection, or integration into everyday routines."}},{"name":"Behavior: Define What You Are Seeing","need":["Support Behavior"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"Right Now","meta":"Move from labels to observable, specific behavior","url":"https://www.pbis.org/","source":"Center on PBIS","why":{"Support Behavior":"Helps define behavior, teach or reinforce skills, or implement a positive behavior support."}},{"name":"Replacement Skill Planner","need":["Support Behavior"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Identify the needed skill · teach · practice · reinforce","url":"https://www.pbis.org/","source":"Center on PBIS","why":{"Support Behavior":"Helps define behavior, teach or reinforce skills, or implement a positive behavior support."}},{"name":"Behavior Support Reflection","need":["Support Behavior"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Triggers · function/barrier · support · progress check","url":"https://www.pbis.org/","source":"Center on PBIS","why":{"Support Behavior":"Helps define behavior, teach or reinforce skills, or implement a positive behavior support."}},{"name":"PBIS Classroom Expectations Review","need":["Support Behavior","Build Belonging"],"aud":["Educator","School Leader","Student Support Staff"],"grade":"K–12","time":"5–15 Minutes","meta":"Teach expectations · reinforce positively · reteach","url":"https://www.pbis.org/","source":"Center on PBIS","why":{"Support Behavior":"Helps define behavior, teach or reinforce skills, or implement a positive behavior support.","Build Belonging":"Strengthens connection, voice, inclusion, or a sense of being known and valued."}},{"name":"Check-In / Check-Out","need":["Support Behavior","Support Attendance"],"aud":["Educator","Student Support Staff","School Leader","Scholar"],"grade":"K–12","time":"Ongoing Support","meta":"Targeted adult connection · feedback · monitoring","url":"https://www.pbis.org/","source":"Center on PBIS","why":{"Support Behavior":"Helps define behavior, teach or reinforce skills, or implement a positive behavior support.","Support Attendance":"Helps identify attendance root causes or match barriers to an intervention and monitoring plan."}},{"name":"Identify the Root Causes of Absence","need":["Support Attendance"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"K–12","time":"5–15 Minutes","meta":"Use the Root Causes Worksheet to identify barriers, aversion, disengagement or misconceptions before matching supports","url":"https://www.attendanceworks.org/chronic-absence/addressing-chronic-absence/3-tiers-of-intervention/root-causes/","source":"Attendance Works","why":{"Support Attendance":"Helps identify attendance root causes or match barriers to an intervention and monitoring plan."}},{"name":"Attendance Support Planning Guide","need":["Support Attendance"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"K–12","time":"5–15 Minutes","meta":"Barrier · intervention · owner · frequency · monitoring","url":"https://www.attendanceworks.org/resources/attendance-playbook/","source":"Attendance Works","why":{"Support Attendance":"Helps identify attendance root causes or match barriers to an intervention and monitoring plan."}},{"name":"Attendance Progress Check","need":["Support Attendance"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"K–12","time":"Right Now","meta":"Review recent attendance and decide continue · modify · intensify · fade","url":"https://www.attendanceworks.org/resources/toolkits/step-2-use-data-to-understand-and-address-the-challenge/","source":"Attendance Works","why":{"Support Attendance":"Helps identify attendance root causes or match barriers to an intervention and monitoring plan."}},{"name":"Success Mentor / Caring Adult","need":["Support Attendance","Build Relationships"],"aud":["Student Support Staff","Educator","School Leader","Scholar"],"grade":"3–12","time":"Ongoing Support","meta":"Relationship-based mentoring · attendance monitoring · persistence","url":"https://www.attendanceworks.org/resources/toolkits/mentoring-elementary-success-mentors/what-does-an-elementary-success-mentor-do/work-with-staff-to-provide-support-services-and-intervention/","source":"Attendance Works","why":{"Support Attendance":"Helps identify attendance root causes or match barriers to an intervention and monitoring plan.","Build Relationships":"Supports connection, communication, trust, or relationship repair."}},{"name":"Family Attendance Partnership Conversation","need":["Support Attendance","Support a Family"],"aud":["Educator","Student Support Staff","Family/Caregiver","School Leader"],"grade":"K–12","time":"5–15 Minutes","meta":"Collaborative problem-solving · barriers · next steps","url":"https://www.attendanceworks.org/resources/attendance-playbook/","source":"Attendance Works","why":{"Support Attendance":"Helps identify attendance root causes or match barriers to an intervention and monitoring plan.","Support a Family":"Supports collaborative family partnership, home-school connection, or navigation to supports."}},{"name":"CASEL Competency Reflection","need":["Teach SEL"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Connect a real situation to the five CASEL competencies","url":"https://casel.org/what-is-sel/","source":"CASEL","why":{"Teach SEL":"Supports explicit SEL instruction, practice, reflection, or integration into everyday routines."}},{"name":"SEL Practice & Reflection","need":["Teach SEL"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Learn a skill · practice it · reflect on transfer","url":"https://casel.org/what-is-sel/","source":"CASEL","why":{"Teach SEL":"Supports explicit SEL instruction, practice, reflection, or integration into everyday routines."}},{"name":"SEL Conversation Guide","need":["Teach SEL"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"Right Now","meta":"Use everyday situations to strengthen SEL vocabulary and skills","url":"https://casel.org/what-is-sel/","source":"CASEL","why":{"Teach SEL":"Supports explicit SEL instruction, practice, reflection, or integration into everyday routines."}},{"name":"SEL Mini-Lesson Planning Template","need":["Teach SEL"],"aud":["Educator","Student Support Staff","School Leader"],"grade":"K–12","time":"Lesson","meta":"Objective · model · practice · reflection · transfer","url":"https://casel.org/what-is-sel/","source":"CASEL","why":{"Teach SEL":"Supports explicit SEL instruction, practice, reflection, or integration into everyday routines."}},{"name":"Morning / Advisory SEL Check-In","need":["Teach SEL","Build Belonging","Manage Emotions"],"aud":["Educator","Student Support Staff","Scholar"],"grade":"K–12","time":"5–15 Minutes","meta":"Connection · emotion awareness · readiness to learn","url":"https://casel.org/what-is-sel/","source":"CASEL","why":{"Teach SEL":"Supports explicit SEL instruction, practice, reflection, or integration into everyday routines.","Build Belonging":"Strengthens connection, voice, inclusion, or a sense of being known and valued.","Manage Emotions":"Builds emotion identification, regulation, coping, or co-regulation skills."}},{"name":"Family Partnership Conversation","need":["Support a Family"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Strengths · concerns · barriers · shared next step","url":"https://grps.org/departments/sel/sel-resources/","source":"GRPS SEL","why":{"Support a Family":"Supports collaborative family partnership, home-school connection, or navigation to supports."}},{"name":"Home-School Support Plan","need":["Support a Family"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"K–12","time":"Ongoing Support","meta":"Clarify roles, communication and coordinated supports","url":"https://grps.org/departments/sel/sel-resources/","source":"GRPS SEL","why":{"Support a Family":"Supports collaborative family partnership, home-school connection, or navigation to supports."}},{"name":"Family Resource Navigation Checklist","need":["Support a Family"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Identify need · connect resource · confirm access · follow up","url":"https://grps.org/departments/sel/sel-resources/","source":"GRPS SEL","why":{"Support a Family":"Supports collaborative family partnership, home-school connection, or navigation to supports."}},{"name":"Family Conversation Starters","need":["Support a Family","Build Relationships"],"aud":["Family/Caregiver","Educator","Scholar"],"grade":"All","time":"Right Now","meta":"SEL at home · connection · communication","url":"https://grps.org/departments/sel/sel-resources/","source":"GRPS SEL","why":{"Support a Family":"Supports collaborative family partnership, home-school connection, or navigation to supports.","Build Relationships":"Supports connection, communication, trust, or relationship repair."}},{"name":"Family Emotion-Coaching Guide","need":["Support a Family","Manage Emotions"],"aud":["Family/Caregiver","Educator","Student Support Staff"],"grade":"K–12","time":"5–15 Minutes","meta":"Name emotion · validate · problem-solve · practice","url":"https://grps.org/departments/sel/sel-resources/","source":"GRPS SEL","why":{"Support a Family":"Supports collaborative family partnership, home-school connection, or navigation to supports.","Manage Emotions":"Builds emotion identification, regulation, coping, or co-regulation skills."}},{"name":"Adult SEL Reflection","need":["Adult SEL"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Reflect on self-awareness, regulation and relational impact","url":"https://casel.org/what-is-sel/","source":"CASEL","why":{"Adult SEL":"Builds adult self-awareness, regulation, relational practice, or modeling of SEL."}},{"name":"Modeling SEL in Relationships","need":["Adult SEL"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"5–15 Minutes","meta":"Notice how adult regulation and communication shape interactions","url":"https://casel.org/what-is-sel/","source":"CASEL","why":{"Adult SEL":"Builds adult self-awareness, regulation, relational practice, or modeling of SEL."}},{"name":"Adult-to-Scholar Co-Regulation Guide","need":["Adult SEL"],"aud":["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"],"grade":"All","time":"Right Now","meta":"Calm first · connect · support regulation · return to problem-solving","url":"https://casel.org/what-is-sel/","source":"CASEL","why":{"Adult SEL":"Builds adult self-awareness, regulation, relational practice, or modeling of SEL."}},{"name":"Adult SEL Team Check-In","need":["Adult SEL","Build Relationships"],"aud":["School Leader","Educator","Student Support Staff"],"grade":"Adult","time":"5–15 Minutes","meta":"Connection · emotional awareness · team readiness","url":"https://casel.org/what-is-sel/","source":"CASEL","why":{"Adult SEL":"Builds adult self-awareness, regulation, relational practice, or modeling of SEL.","Build Relationships":"Supports connection, communication, trust, or relationship repair."}},{"name":"Staff Shared Agreements","need":["Adult SEL","Build Belonging","Build Relationships"],"aud":["School Leader","Educator","Student Support Staff"],"grade":"Adult","time":"Lesson","meta":"Team culture · psychological safety · collective commitments","url":"https://grps.org/departments/sel/sel-resources/","source":"GRPS SEL","why":{"Adult SEL":"Builds adult self-awareness, regulation, relational practice, or modeling of SEL.","Build Belonging":"Strengthens connection, voice, inclusion, or a sense of being known and valued.","Build Relationships":"Supports connection, communication, trust, or relationship repair."}}];
+
+const audienceGuides={
+"Educator":{
+  title:"For Educators",
+  summary:"Use SEL practices to strengthen classroom climate, relationships, regulation, behavior and engagement.",
+  priorities:["Build belonging and relationships","Teach and model SEL skills","Respond to behavior through skill-building","Know when to move into MTSS problem solving"],
+  links:[
+    ["Three Signature Practices","https://signaturepractices.casel.org/practices/","CASEL"],
+    ["GRPS SEL Resources","https://grps.org/departments/sel/sel-resources/","GRPS"],
+    ["Center on PBIS","https://www.pbis.org/","Center on PBIS"]
+  ]
+},
+"School Leader":{
+  title:"For School Leaders",
+  summary:"Build the conditions, routines and implementation systems that make SEL and MTSS consistent across the school.",
+  priorities:["Strengthen schoolwide belonging and climate","Align SEL, PBIS and MTSS","Support adult SEL and implementation fidelity","Use data to identify system-level needs"],
+  links:[
+    ["CASEL Schoolwide Guide","https://schoolguide.casel.org/","CASEL"],
+    ["Center on PBIS","https://www.pbis.org/","Center on PBIS"],
+    ["GRPS SEL Resources","https://grps.org/departments/sel/sel-resources/","GRPS"]
+  ]
+},
+"Scholar":{
+  title:"For Scholars",
+  summary:"Find practical tools for emotions, relationships, conflict, belonging and getting support when you need it.",
+  priorities:["Name and manage emotions","Build healthy relationships","Solve conflict and repair harm","Identify trusted adults and ask for support"],
+  links:[
+    ["GRPS SEL Resources","https://grps.org/departments/sel/sel-resources/","GRPS"],
+    ["What Is SEL?","https://casel.org/what-is-sel/","CASEL"],
+    ["988 Lifeline","https://988lifeline.org/","988 Lifeline"]
+  ]
+},
+"Family/Caregiver":{
+  title:"For Families & Caregivers",
+  summary:"Use practical resources to support connection, emotion regulation, attendance, behavior and school partnership.",
+  priorities:["Strengthen home-school connection","Support emotion coaching and regulation","Address barriers affecting attendance or engagement","Know where to go for additional support"],
+  links:[
+    ["GRPS SEL Resources","https://grps.org/departments/sel/sel-resources/","GRPS"],
+    ["Attendance Works","https://www.attendanceworks.org/","Attendance Works"],
+    ["FindHelp","https://www.findhelp.org/","FindHelp"]
+  ]
+},
+"Student Support Staff":{
+  title:"For Student Support Staff",
+  summary:"Use coordinated SEL and MTSS tools to identify needs, match interventions, support families and monitor response.",
+  priorities:["Clarify root cause or barrier","Match the intervention to the need","Coordinate across school, family and partners","Monitor implementation and response"],
+  links:[
+    ["MTSS Center","https://mtss4success.org/","Center on MTSS"],
+    ["Attendance Playbook","https://www.attendanceworks.org/resources/attendance-playbook/","Attendance Works"],
+    ["Center on PBIS","https://www.pbis.org/","Center on PBIS"]
+  ]
+},
+"Community Partner":{
+  title:"For Community Partners",
+  summary:"Understand how community-based supports connect to school-based SEL, attendance, belonging and MTSS problem solving.",
+  priorities:["Coordinate around the identified scholar/family need","Avoid duplicating school supports","Clarify roles, ownership and follow-up","Help remove barriers affecting access and engagement"],
+  links:[
+    ["GRPS SEL Resources","https://grps.org/departments/sel/sel-resources/","GRPS"],
+    ["Kent School Services Network","https://www.kentisd.org/parents--community/","KSSN"],
+    ["FindHelp","https://www.findhelp.org/","FindHelp"]
+  ]
+}
+};
+function renderAudienceGuide(role){
+ const g=audienceGuides[role];
+ if(!g)return;
+ const box=document.getElementById('audienceGuide');
+ if(!box)return;
+ box.innerHTML=`
+ <div class="audience-panel">
+   <div>
+     <div class="eyebrow">${g.title}</div>
+     <h3>${g.summary}</h3>
+   </div>
+   <div class="audience-priorities">
+     ${g.priorities.map(x=>`<div class="mini-card">${x}</div>`).join("")}
+   </div>
+   <div class="audience-actions">
+     <button class="btn primary" onclick="openFinder()">FIND A RESOURCE →</button>
+     <button class="btn secondary" onclick="openSupport()">SUPPORT A SCHOLAR →</button>
+   </div>
+   <div class="audience-links">
+     ${g.links.map(r=>`<a href="${r[1]}" target="_blank" rel="noopener"><strong>${r[0]}</strong><span>${r[2]}</span></a>`).join("")}
+   </div>
+ </div>`;
+}
+
+
+const secondaryCenters={
+"Educators":{
+ title:"Educator Resource Center",
+ intro:"Practical tools for classroom climate, SEL instruction, behavior support, belonging, restorative practice and MTSS problem solving.",
+ sections:[
+  ["Start With Classroom Climate",[
+   ["Three Signature Practices","CASEL","https://signaturepractices.casel.org/practices/"],
+   ["Shared Agreements","GRPS","https://grps.org/departments/sel/sel-resources/"],
+   ["Community-Building Questions","GRPS","https://grps.org/departments/sel/sel-resources/"]
+  ]],
+  ["Teach & Model SEL",[
+   ["CASEL Framework","CASEL","https://casel.org/what-is-sel/"],
+   ["GRPS SEL Curriculum","GRPS","https://grps.org/departments/sel/sel-curriculum/"],
+   ["SEL Resources","GRPS","https://grps.org/departments/sel/sel-resources/"]
+  ]],
+  ["Respond to Behavior & Conflict",[
+   ["Center on PBIS","Center on PBIS","https://www.pbis.org/"],
+   ["Restorative Questions","IIRP","https://grps.org/departments/sel/sel-resources/"],
+   ["Support a Scholar","GRPS Hub","#support"]
+  ]]
+ ]},
+"Scholars":{
+ title:"Scholar Resource Center",
+ intro:"Tools for emotions, relationships, conflict, belonging, attendance and asking for support.",
+ sections:[
+  ["Manage Emotions",[
+   ["GRPS SEL Resources","GRPS","https://grps.org/departments/sel/sel-resources/"],
+   ["CASEL Framework","CASEL","https://casel.org/what-is-sel/"],
+   ["988 Lifeline","988 Lifeline","https://988lifeline.org/"]
+  ]],
+  ["Build Relationships & Belonging",[
+   ["Community-Building Resources","GRPS","https://grps.org/departments/sel/sel-resources/"],
+   ["Three Signature Practices","CASEL","https://signaturepractices.casel.org/practices/"],
+   ["Support a Scholar","GRPS Hub","#support"]
+  ]],
+  ["Get Help With Attendance or Other Barriers",[
+   ["Attendance Works","Attendance Works","https://www.attendanceworks.org/"],
+   ["FindHelp","FindHelp","https://www.findhelp.org/"],
+   ["Support a Scholar","GRPS Hub","#support"]
+  ]]
+ ]},
+"Families":{
+ title:"Family & Caregiver Resource Center",
+ intro:"Resources to strengthen home-school partnership, support emotions and behavior, address attendance barriers and connect to community supports.",
+ sections:[
+  ["Support SEL at Home",[
+   ["GRPS SEL Resources","GRPS","https://grps.org/departments/sel/sel-resources/"],
+   ["CASEL Framework","CASEL","https://casel.org/what-is-sel/"],
+   ["Family Conversation Resources","GRPS","https://grps.org/departments/sel/sel-resources/"]
+  ]],
+  ["Support Attendance & Engagement",[
+   ["Attendance Works","Attendance Works","https://www.attendanceworks.org/"],
+   ["Attendance Playbook","Attendance Works","https://www.attendanceworks.org/resources/attendance-playbook/"],
+   ["Support a Scholar","GRPS Hub","#support"]
+  ]],
+  ["Find Additional Support",[
+   ["FindHelp","FindHelp","https://www.findhelp.org/"],
+   ["KSSN","Kent ISD","https://www.kentisd.org/parents--community/"],
+   ["GRPS Family & Community Engagement","GRPS","https://grps.org/departments/face/"]
+  ]]
+ ]},
+"Schoolwide SEL":{
+ title:"Schoolwide SEL Resource Center",
+ intro:"Implementation tools for creating coherent schoolwide SEL systems that align with PBIS, restorative practice, adult SEL and MTSS.",
+ sections:[
+  ["Build the Foundation",[
+   ["CASEL Schoolwide Guide","CASEL","https://schoolguide.casel.org/"],
+   ["Three Signature Practices","CASEL","https://signaturepractices.casel.org/practices/"],
+   ["Shared Agreements","GRPS","https://grps.org/departments/sel/sel-resources/"]
+  ]],
+  ["Align With Schoolwide Systems",[
+   ["Center on PBIS","Center on PBIS","https://www.pbis.org/"],
+   ["MTSS Center","Center on MTSS","https://mtss4success.org/"],
+   ["GRPS SEL Resources","GRPS","https://grps.org/departments/sel/sel-resources/"]
+  ]],
+  ["Strengthen Implementation",[
+   ["CASEL Schoolwide Guide","CASEL","https://schoolguide.casel.org/"],
+   ["Adult SEL Resources","CASEL","https://drc.casel.org/strengthen-adult-sel-competencies-and-capacity/professional-learning/resources/"],
+   ["Support a Scholar","GRPS Hub","#support"]
+  ]]
+ ]},
+"Adult SEL":{
+ title:"Adult SEL Resource Center",
+ intro:"Tools to strengthen adult self-awareness, regulation, relational practice, team culture and modeling of SEL.",
+ sections:[
+  ["Self-Awareness & Regulation",[
+   ["Adult SEL Resources","CASEL","https://drc.casel.org/strengthen-adult-sel-competencies-and-capacity/professional-learning/resources/"],
+   ["CASEL Framework","CASEL","https://casel.org/what-is-sel/"],
+   ["GRPS SEL Resources","GRPS","https://grps.org/departments/sel/sel-resources/"]
+  ]],
+  ["Team Culture & Belonging",[
+   ["Shared Agreements","GRPS","https://grps.org/departments/sel/sel-resources/"],
+   ["Three Signature Practices","CASEL","https://signaturepractices.casel.org/practices/"],
+   ["CASEL Schoolwide Guide","CASEL","https://schoolguide.casel.org/"]
+  ]],
+  ["Model SEL in Practice",[
+   ["Adult SEL Resources","CASEL","https://drc.casel.org/strengthen-adult-sel-competencies-and-capacity/professional-learning/resources/"],
+   ["Center on PBIS","Center on PBIS","https://www.pbis.org/"],
+   ["Support a Scholar","GRPS Hub","#support"]
+  ]]
+ ]},
+"About":{
+ title:"About GRPS Social & Emotional Learning",
+ intro:"The GRPS SEL Resource Hub supports hope, belonging and purpose by connecting practical SEL resources with schoolwide systems and MTSS problem solving.",
+ sections:[
+  ["GRPS SEL",[
+   ["GRPS SEL Department","GRPS","https://grps.org/departments/sel/"],
+   ["GRPS SEL Resources","GRPS","https://grps.org/departments/sel/sel-resources/"],
+   ["GRPS SEL Curriculum","GRPS","https://grps.org/departments/sel/sel-curriculum/"]
+  ]],
+  ["Frameworks That Inform the Hub",[
+   ["CASEL Framework","CASEL","https://casel.org/what-is-sel/"],
+   ["CASEL Schoolwide Guide","CASEL","https://schoolguide.casel.org/"],
+   ["Center on MTSS","Center on MTSS","https://mtss4success.org/"]
+  ]],
+  ["How to Use This Hub",[
+   ["Find a Resource","GRPS Hub","#finder"],
+   ["Support a Scholar","GRPS Hub","#support"],
+   ["MTSS Center","GRPS Hub","#mtss"]
+  ]]
+ ]}
+};
+
+function openSecondaryCenter(name){
+ const c=secondaryCenters[name];
+ if(!c)return;
+ openModal(c.title,`
+   <p>${c.intro}</p>
+   ${c.sections.map(s=>`
+     <div class="question">${s[0]}</div>
+     <div class="resource-grid">
+       ${s[1].map(r=>`
+         <div class="result">
+           <h4>${r[0]}</h4>
+           <div class="meta">Source: ${r[1]}</div>
+           ${r[2].startsWith("#") ?
+             `<button class="resource-link link-button" onclick="${r[2]=='#support'?'openSupport()':r[2]=='#finder'?'openFinder()':r[2]=='#mtss'?'openMTSS()':''}">OPEN TOOL →</button>` :
+             `<a class="resource-link" href="${r[2]}" target="_blank" rel="noopener">OPEN RESOURCE →</a>`}
+         </div>`).join("")}
+     </div>`).join("")}
+ `);
+}
+
+
+const monthlyTools=[
+ {title:"Build Belonging",tag:"RELATIONSHIPS",who:"All audiences",time:"5–15 min",use:"Use at the start of class, meetings, groups or family conversations to strengthen connection.",url:"https://signaturepractices.casel.org/practices/",source:"CASEL"},
+ {title:"Shared Agreements",tag:"CLIMATE",who:"Educators · Leaders · Support Staff",time:"15–30 min",use:"Develop or revisit how a group wants to learn, work and interact together.",url:"https://grps.org/departments/sel/sel-resources/",source:"GRPS"},
+ {title:"Three Signature Practices",tag:"ROUTINES",who:"Educators · Leaders · Support Staff",time:"5–15 min",use:"Use inclusive welcomes, engaging strategies and intentional closings in everyday practice.",url:"https://signaturepractices.casel.org/practices/",source:"CASEL"},
+ {title:"Regulate & Reset",tag:"SELF-MANAGEMENT",who:"Scholars · Families · Staff",time:"Right now",use:"Use a brief grounding or regulation strategy before returning to learning or problem solving.",url:"https://grps.org/departments/sel/sel-resources/",source:"GRPS"}
+];
+function openMonthlyTool(i){
+ const t=monthlyTools[i];
+ openModal(t.title,`
+ <div class="result" style="background:#F7FAFC">
+   <div class="meta">${t.tag} · ${t.time}</div>
+   <h4>Best for</h4><div>${t.who}</div>
+ </div>
+ <div class="question">WHEN TO USE IT</div>
+ <div class="result">${t.use}</div>
+ <div class="question">USE THE RESOURCE</div>
+ <div class="result"><div class="meta">Source: ${t.source}</div><a class="resource-link" href="${t.url}" target="_blank" rel="noopener">OPEN RESOURCE →</a></div>
+ `);
+}
+
+
+const maintenancePanel = {
+  title:"Resource Hub Maintenance",
+  intro:"Use this maintenance view to keep links, monthly tools and featured resources current after launch.",
+  items:[
+    ["Monthly Quick Tools","Rotate or refresh the four featured tools each month. Keep them practical, timely and linked to an actual resource."],
+    ["External Link Review","Review high-use external links at least quarterly and after any reported error."],
+    ["GRPS Resource Updates","Replace broad landing-page links with direct GRPS tools whenever a stable direct resource becomes available."],
+    ["MTSS Intervention Quality","Keep the distinction between actions and interventions visible. Interventions should identify the barrier, owner, frequency/duration and monitoring method."],
+    ["Audience Coverage","When adding a new resource, tag it to every appropriate audience so filters never create empty or thin result sets."],
+    ["Content Review Date","Update the visible review date whenever a substantive link or content validation pass is completed."]
+  ]
+};
+function openMaintenance(){
+  openModal(maintenancePanel.title,`
+    <p>${maintenancePanel.intro}</p>
+    ${maintenancePanel.items.map((x,i)=>`
+      <div class="result">
+        <div class="meta">MAINTENANCE ${i+1}</div>
+        <h4>${x[0]}</h4>
+        <div>${x[1]}</div>
+      </div>`).join("")}
+  `);
+}
+
+function openFinder(){
+  openModal("Find a Resource",`
+    <p>Start with what you are trying to accomplish. Choose what you are trying to accomplish first. The finder will immediately show <strong>all resources in that area</strong>. You can then optionally select an audience to narrow the list while still keeping multiple exact options.</p>
+    <div class="question">What are you trying to accomplish?</div>
+    <div class="chips" id="needChips">
+      ${["Build Relationships","Manage Emotions","Build Belonging","Resolve Conflict","Support Behavior","Support Attendance","Teach SEL","Support a Family","Adult SEL"].map(x=>`<button class="chip" onclick="pickNeed(this,'${x}')">${x}</button>`).join("")}
+    </div>
+    <div class="question">Optional: Who is the resource for?</div>
+    <div class="chips">
+      ${["Educator","School Leader","Student Support Staff","Family/Caregiver","Scholar"].map(x=>`<button class="chip" onclick="pickAudience(this,'${x}')">${x}</button>`).join("")}
+    </div>
+    <div id="finderResults" class="results"><div class="result"><strong>Select a need above.</strong><div class="meta">Select a need to see all resources in that area. Audience is optional and only narrows the results.</div></div></div>
+  `);
+}
+let selectedNeed="",selectedAud="";
+function pickNeed(btn,val){
+  selectedNeed=val;
+  document.querySelectorAll('#needChips .chip').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  renderFinder();
+}
+function pickAudience(btn,val){
+  selectedAud=val;
+  btn.parentNode.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  renderFinder();
+}
+function renderFinder(){
+  const box=document.getElementById('finderResults');
+
+  if(!selectedNeed){
+    box.innerHTML='<div class="result"><strong>Select a need above.</strong><div class="meta">All resources for that area will appear immediately. You can then optionally narrow by audience.</div></div>';
+    return;
+  }
+
+  const allForNeed=resources.filter(r=>r.need.includes(selectedNeed));
+
+  // Initial selection: show every resource connected to the selected area.
+  if(!selectedAud){
+    box.innerHTML=`<div class="result" style="background:#F7FAFC"><strong>${allForNeed.length} resources for ${selectedNeed}</strong><div class="meta">Showing every loaded resource in this area. Select an audience above only if you want to narrow the list.</div></div>` +
+      allForNeed.map(r=>`<div class="result"><h4>${r.name}</h4><div class="meta">RESOURCE · ${r.aud.join(' · ')} · ${r.grade} · ${r.time} · Source: ${r.source}</div><div>${r.meta}</div><div style="margin-top:8px;font-size:13px"><strong>Why this matches:</strong> ${r.why[selectedNeed]||"Matches the selected goal."}</div><a class="resource-link" href="${r.url}" target="_blank" rel="noopener">OPEN RESOURCE →</a></div>`).join('');
+    return;
+  }
+
+  const exact=allForNeed.filter(r=>r.aud.includes(selectedAud));
+
+  box.innerHTML=`<div class="result" style="background:#F7FAFC"><strong>${exact.length} exact resource options for ${selectedAud}</strong><div class="meta">${selectedNeed} · filtered from ${allForNeed.length} total resources in this area.</div></div>` +
+    exact.map(r=>`<div class="result"><h4>${r.name}</h4><div class="meta">RESOURCE · ${selectedAud} · ${r.grade} · ${r.time} · Exact match · Source: ${r.source}</div><div>${r.meta}</div><div style="margin-top:8px;font-size:13px"><strong>Why this matches:</strong> ${r.why[selectedNeed]||"Matches the selected goal."}</div><a class="resource-link" href="${r.url}" target="_blank" rel="noopener">OPEN RESOURCE →</a></div>`).join('');
+}
+
+const supportPaths={
+"Attendance":{
+ intro:"Use attendance patterns and root-cause information to identify the barrier before selecting an intervention.",
+ look:["Recent attendance pattern and missed instructional time","Day-of-week, class-period, transportation or health patterns","Scholar and caregiver perspective on why absences are occurring"],
+ moves:["Identify the root cause of absence","Select a barrier-matched strategy from the Attendance Playbook","Assign an owner, frequency and progress-monitoring date"],
+ resources:[
+ ["Identify the Root Causes of Absence","Attendance Works","https://www.attendanceworks.org/chronic-absence/addressing-chronic-absence/3-tiers-of-intervention/root-causes/"],
+ ["Attendance Playbook","Attendance Works","https://www.attendanceworks.org/resources/attendance-playbook/"],
+ ["Success Mentors","Attendance Works","https://www.attendanceworks.org/resources/toolkits/mentoring-elementary-success-mentors/"]
+ ]},
+"Academic":{
+ intro:"Clarify the specific academic skill or access need and connect it to instruction, intervention and progress monitoring.",
+ look:["Universal screening, classroom and formative assessment data","Specific skill gap rather than a broad label such as 'struggling'","Instruction already provided and scholar response"],
+ moves:["Define the priority skill","Confirm strong core instruction and differentiation","Match targeted/intensive support and set a progress-monitoring schedule"],
+ resources:[
+ ["MTSS Academic Problem-Solving","Center on MTSS","https://mtss4success.org/"],
+ ["Evidence-Based Intervention Resources","What Works Clearinghouse","https://ies.ed.gov/ncee/wwc/"],
+ ["High-Leverage Practices","CEEDAR Center","https://highleveragepractices.org/"]
+ ]},
+"Behavior":{
+ intro:"Define observable behavior, understand what is maintaining it, and teach or reinforce a replacement skill.",
+ look:["What happens before, during and after the behavior","Where/when the behavior occurs and where it does not","Skills, expectations and environmental factors involved"],
+ moves:["Define behavior in observable terms","Identify likely function/barrier","Teach, prompt and reinforce a replacement skill; monitor response"],
+ resources:[
+ ["Center on PBIS","Center on PBIS","https://www.pbis.org/"],
+ ["Tier 2 PBIS Resources","Center on PBIS","https://www.pbis.org/topics/school-wide"],
+ ["Tier 3 PBIS Resources","Center on PBIS","https://www.pbis.org/topics/school-wide"]
+ ]},
+"Social-Emotional":{
+ intro:"Identify the SEL skill or condition affecting participation, relationships or readiness to learn.",
+ look:["Which CASEL competency appears most relevant","Context, triggers, strengths and existing coping strategies","Whether the need is instructional/skill-based or requires a different support pathway"],
+ moves:["Teach and practice the specific SEL skill","Build opportunities to apply the skill in authentic settings","Monitor whether the scholar can use the skill with decreasing adult support"],
+ resources:[
+ ["What Is the CASEL Framework?","CASEL","https://casel.org/what-is-sel/"],
+ ["GRPS SEL Resources","GRPS","https://grps.org/departments/sel/sel-resources/"],
+ ["CASEL Schoolwide Guide","CASEL","https://schoolguide.casel.org/"]
+ ]},
+"Belonging / Engagement":{
+ intro:"Determine whether the scholar feels known, valued, connected and meaningfully engaged in school.",
+ look:["Trusted adult and peer connections","Participation, voice, relevance and classroom/school climate","Settings where engagement is stronger and what is different there"],
+ moves:["Strengthen a specific caring-adult connection","Increase meaningful voice, participation or relevance","Use community-building practices and monitor engagement"],
+ resources:[
+ ["Three Signature Practices","CASEL","https://signaturepractices.casel.org/practices/"],
+ ["GRPS SEL Resources","GRPS","https://grps.org/departments/sel/sel-resources/"],
+ ["Community-Building Resources","GRPS","https://grps.org/departments/sel/sel-resources/"]
+ ]},
+"Mental / Behavioral Health":{
+ intro:"Use this pathway when the concern may require mental or behavioral health expertise beyond universal SEL instruction.",
+ look:["Intensity, duration and impact on functioning","Immediate safety concerns or significant changes from baseline","Existing supports and whether additional professional assessment/support is indicated"],
+ moves:["Follow district/school referral and safety procedures","Connect with appropriate school-based mental/behavioral health personnel","Coordinate supports while maintaining instructional access and belonging"],
+ resources:[
+ ["GRPS Behavioral Health","GRPS","https://grps.org/departments/css/scholar-guide/"],
+ ["988 Lifeline","988 Lifeline","https://988lifeline.org/"],
+ ["SAMHSA Find Support","SAMHSA","https://www.samhsa.gov/find-support"]
+ ]},
+"Family / Basic Needs":{
+ intro:"Identify the concrete family or basic-needs barrier and connect the family to coordinated support rather than relying on repeated outreach alone.",
+ look:["Housing, food, transportation, health, childcare or other access barriers","Family strengths, priorities and preferred communication","Existing school/community partners already involved"],
+ moves:["Agree on the priority barrier with the family","Connect to a concrete resource or partner","Confirm access and follow up to determine whether the barrier was reduced"],
+ resources:[
+ ["GRPS Family & Community Engagement","GRPS","https://grps.org/departments/face/"],
+ ["FindHelp","FindHelp","https://www.findhelp.org/"],
+ ["Kent School Services Network","KSSN","https://www.kentisd.org/parents--community/"]
+ ]},
+"Multiple Concerns":{
+ intro:"When several concerns are present, avoid launching disconnected interventions. Identify the highest-leverage barrier and coordinate one integrated plan.",
+ look:["Which concern is most urgent or has the greatest effect on access to learning","Connections among attendance, academics, behavior, SEL, health and family factors","Current supports, owners and possible duplication"],
+ moves:["Create one shared problem statement","Prioritize the first barrier to address","Assign a lead, coordinate interventions and use one monitoring cadence"],
+ resources:[
+ ["MTSS Center","Center on MTSS","https://mtss4success.org/"],
+ ["CASEL + MTSS Guidance","CASEL","https://schoolguide.casel.org/"],
+ ["Center on PBIS","Center on PBIS","https://www.pbis.org/"]
+ ]}
+};
+let selectedSupport="";
+function openSupport(){
+  openModal("Support a Scholar",`
+  <p><strong>Start with the need, not the tier.</strong> Select the area that best describes what you are seeing. The pathway will show what to examine, practical next moves, and multiple resources.</p>
+  <div class="question">What are you seeing?</div>
+  <div class="chips">${Object.keys(supportPaths).map(x=>`<button class="chip" onclick="selectSupport('${x.replace(/'/g,"\'")}',this)">${x}</button>`).join("")}</div>
+  <div id="supportResults"><div class="result"><strong>Select one area above.</strong><div class="meta">You will get a structured problem-solving pathway—not just a list of links.</div></div></div>`);
+}
+function selectSupport(name,el){
+ selectedSupport=name;
+ document.querySelectorAll('#modal .chip').forEach(x=>x.classList.remove('active')); el.classList.add('active');
+ const p=supportPaths[name], box=document.getElementById('supportResults');
+ box.innerHTML=`
+ <div class="result" style="background:#F7FAFC"><h4>${name}</h4><div>${p.intro}</div></div>
+ <div class="question">LOOK AT THIS FIRST</div>
+ <div class="steps">${p.look.map(x=>`<div>${x}</div>`).join("")}</div>
+ <div class="question">PRACTICAL NEXT MOVES</div>
+ <div class="steps">${p.moves.map(x=>`<div>${x}</div>`).join("")}</div>
+ <div class="question">RESOURCES & TOOLS</div>
+ ${p.resources.map(r=>`<div class="result"><h4>${r[0]}</h4><div class="meta">Source: ${r[1]}</div><a class="resource-link" href="${r[2]}" target="_blank" rel="noopener">OPEN RESOURCE →</a></div>`).join("")}
+ <div class="result" style="margin-top:14px"><strong>Before calling something an intervention:</strong><div class="meta">Name the barrier, what will change for the scholar, who owns the support, frequency/duration, and how response will be monitored.</div></div>
+ <button class="btn secondary" style="margin-top:18px" onclick="openMTSS()">CONTINUE TO MTSS CENTER →</button>`;
+}
+
+function openMTSS(){
+ openModal("MTSS Center",`
+ <p>A practical problem-solving center for matching needs to supports and monitoring whether the support works.</p>
+ <div class="process">DEFINE NEED → UNDERSTAND → MATCH → IMPLEMENT → MONITOR → DECIDE</div>
+ <div class="question">Did we take an action—or provide an intervention?</div>
+ <div class="action-vs">
+  <div class="av-card action"><h3>ACTION</h3><p>Something staff did.</p><p><strong>Examples:</strong> Called home, sent a letter, held a meeting, made a referral, reviewed data.</p></div>
+  <div class="av-card intervention"><h3>INTERVENTION</h3><p>A support intentionally designed to remove/reduce an identified barrier, change a behavior, or address the underlying situation.</p></div>
+ </div>
+ <div class="question">The Intervention Test</div>
+ <div class="steps">
+  <div>What barrier are we addressing?</div>
+  <div>What will actually change for the scholar?</div>
+  <div>Who owns the intervention?</div>
+  <div>How often and for how long will it occur?</div>
+  <div>How will we know whether it worked?</div>
+ </div>
+ <div class="question">Decision rule</div>
+ <div class="chips"><span class="chip">Continue</span><span class="chip">Modify</span><span class="chip">Intensify</span><span class="chip">Fade / Exit</span></div>
+ `);
+}
+function showTool(name){openModal(name,`<p>This card is ready to link to the approved GRPS resource. In the production hub, monthly tools are swapped without redesigning the homepage.</p><div class="result"><h4>${name}</h4><div class="meta">Monthly Quick Tool · Back-to-School</div><p>Recommended placement: one concise description, one primary action, and no extra iconography.</p></div>`)}
+
+document.addEventListener("click",function(e){
+  const b=e.target.closest(".role,.audience,.audience-btn,[data-role]");
+  if(!b)return;
+  const txt=(b.dataset.role||b.textContent||"").trim();
+  const names=Object.keys(audienceGuides);
+  const hit=names.find(n=>txt.includes(n));
+  if(hit){
+    setTimeout(()=>renderAudienceGuide(hit),0);
+  }
+});
+
+
+document.addEventListener("click",function(e){
+ const t=(e.target.textContent||"").trim().toUpperCase();
+ const map={
+   "EDUCATORS":"Educators",
+   "SCHOLARS":"Scholars",
+   "FAMILIES":"Families",
+   "SCHOOLWIDE SEL":"Schoolwide SEL",
+   "ADULT SEL":"Adult SEL",
+   "ABOUT":"About"
+ };
+ if(map[t] && e.target.closest("nav,header,.nav,.topnav")){
+   e.preventDefault();
+   openSecondaryCenter(map[t]);
+ }
+});
+
+
+document.addEventListener("click",function(e){
+ const text=(e.target.closest("button,.tool,.quick-tool,.card")?.textContent||"").trim();
+ const titles=["Build Belonging","Shared Agreements","Three Signature Practices","Regulate & Reset"];
+ const hit=titles.findIndex(x=>text.includes(x));
+ if(hit>=0 && e.target.closest(".quick-tools,.tools,.monthly-tools,[class*='quick']")) {
+   e.preventDefault(); openMonthlyTool(hit);
+ }
+});
+
+
+function goHome(){
+  const m=document.getElementById("modal");
+  if(m){m.classList.remove("open");m.style.display="none";}
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"){
+    const m=document.getElementById("modal");
+    if(m){m.classList.remove("open");m.style.display="none";}
+  }
+});
+
+
+document.querySelectorAll('a[href^="http"]').forEach(a=>{
+  a.setAttribute("target","_blank");
+  a.setAttribute("rel","noopener noreferrer");
+});
+
+
+document.addEventListener("click",function(e){
+  const a=e.target.closest('a.resource-link[href^="http"]');
+  if(!a)return;
+  a.addEventListener("error",()=>{}, {once:true});
+});
+
+</script>
+
+<button class="home-fab" onclick="goHome()" aria-label="Return to home">HOME</button>
+
+</body>
+</html>

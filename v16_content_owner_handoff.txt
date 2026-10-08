@@ -1,0 +1,22 @@
+GRPS SEL Resource Hub — Content Owner Handoff
+
+PURPOSE
+The hub should remain a practical decision-support resource, not become a static collection of links.
+
+RECOMMENDED OWNERSHIP ROUTINE
+- Monthly: refresh Quick Tools.
+- Quarterly: test high-use GRPS and external links.
+- Twice yearly: review Support a Scholar and MTSS pathway content.
+- Annually: review CASEL/PBIS/Attendance Works framework language.
+
+RESOURCE ADDITION STANDARD
+Before adding a resource:
+1. Confirm it solves a clear user need.
+2. Tag it to all appropriate audiences.
+3. Use the exact resource title whenever possible.
+4. Prefer a direct tool/document over a broad landing page.
+5. For attendance/MTSS supports, confirm it is an intervention or an actionable problem-solving tool—not merely an action such as outreach.
+6. Confirm the URL is public and usable from a district-managed browser.
+
+KEEP THE HOMEPAGE SIMPLE
+Do not add new homepage sections unless they improve a common user task. New content should usually be placed in a resource center, the finder, or a support pathway.

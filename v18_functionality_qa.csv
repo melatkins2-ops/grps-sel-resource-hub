@@ -1,0 +1,14 @@
+Check,Status,Note
+Document structure,PASS,Explicit HTML5 doctype added; complete document
+Viewport/mobile,PASS,Responsive viewport present
+Home control,PASS,Persistent/return-home behavior present
+Resource Finder,PASS,Finder function present
+Support a Scholar,PASS,Scholar support interaction present
+MTSS,PASS,MTSS content/process present
+Modal close,PASS,Modal close function present
+Escape close,PASS,Escape-key handling present
+External link safety,PASS,New-tab safety present
+Visual review date,PASS,Current review month shown
+No placeholder hrefs,PASS,No placeholder links remain
+External URLs present,PASS,28 unique external URLs found
+No obvious malformed URLs,PASS,URL syntax check
