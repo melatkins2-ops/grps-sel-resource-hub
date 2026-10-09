@@ -470,6 +470,29 @@ a:focus-visible,button:focus-visible{outline:3px solid #F26A21;outline-offset:3p
 
 /* V37: open editorial journeys, not cards */
 .v37-page{color:#123653;font-size:18px;line-height:1.6;max-width:1120px;margin:auto}.v37-hero{padding:44px 0 35px;border-bottom:2px solid #d9e4e9}.v37-kicker{font-size:13px;font-weight:900;letter-spacing:.14em;color:#bd4a0d;text-transform:uppercase}.v37-hero h3{font-size:clamp(36px,5vw,62px);line-height:1.09;letter-spacing:-.035em;color:#0b3155;margin:12px 0 18px}.v37-hero p{font-size:20px;max-width:790px;color:#34566c}.v37-switch{display:flex;gap:8px;overflow-x:auto;padding:22px 0 24px;border-bottom:1px solid #d3e0e8}.v37-switch button{white-space:nowrap;border:0;border-bottom:3px solid transparent;background:transparent;color:#274d66;font-size:16px;font-weight:750;padding:12px 15px;cursor:pointer}.v37-switch button.active{border-color:#df5b13;color:#0a3155;background:#edf4f7}.v37-feature{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(22px,5vw,70px);padding:44px 0 42px;align-items:start}.v37-feature h4{font-size:clamp(29px,3.5vw,43px);line-height:1.16;color:#0b3155;margin:10px 0 17px}.v37-feature p{font-size:18px;color:#35556b}.v37-example{padding:0 0 0 25px;border-left:5px solid #e45b12}.v37-example strong{color:#a63c07;letter-spacing:.08em;font-size:13px}.v37-example p{font-size:18px}.v37-links{border-top:2px solid #153e60;margin-top:14px;padding-top:12px}.v37-links h4{font-size:22px;margin:8px 0 12px;color:#0b3155}.v37-link{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 4px;border-bottom:1px solid #d7e2e8;color:#113a5b;text-decoration:none;font-weight:750;font-size:18px}.v37-link small{display:block;font-size:13px;font-weight:500;color:#506c7b}.v37-link:hover,.v37-link:focus-visible{background:#edf5f9;color:#b7460a}.v37-footer{padding:40px 0 12px;display:flex;flex-wrap:wrap;gap:12px}.v37-footer button,.v37-action{background:#0d3155;color:white;border:0;border-radius:100px;padding:15px 23px;font-weight:800;font-size:16px;cursor:pointer}.v37-footer button:nth-child(2){background:#e65d12}.v37-finder-top{padding:28px 0;border-bottom:1px solid #d7e2e8}.v37-need-list{display:flex;gap:9px;flex-wrap:wrap;padding:20px 0}.v37-need-list button{border:1px solid #bacfd9;background:white;border-radius:100px;padding:12px 17px;font-size:16px;color:#123a58;font-weight:700;cursor:pointer}.v37-need-list button.active{background:#0b3155;color:white;border-color:#0b3155}.v37-audience{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 0 24px}.v37-audience label{font-weight:750}.v37-audience select{font-size:16px;padding:12px;border:1px solid #a7c2d0;border-radius:8px;min-width:230px}.v37-resource-list{margin:20px 0 30px;border-top:2px solid #123a58}.v37-resource{border-bottom:1px solid #d1e0e7;padding:20px 0}.v37-resource summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:15px;font-weight:800;font-size:21px;color:#0b3155}.v37-resource summary::marker{color:#df5b13}.v37-resource summary small{display:block;color:#547080;font-size:14px;font-weight:500;margin-top:5px}.v37-resource-body{max-width:800px;padding:14px 0 3px;color:#31546b;font-size:17px}.v37-resource-body a{font-weight:800;color:#b4460b}.v37-resource-body button{border:1px solid #b6cad5;background:white;color:#123a58;border-radius:100px;padding:10px 14px;font-weight:700;margin-left:12px;cursor:pointer}.v37-count{font-size:16px;color:#416077}.v37-steps{counter-reset:v37;list-style:none;margin:12px 0 28px;padding:0}.v37-steps li{padding:12px 0;border-bottom:1px solid #dce6eb}.v37-steps li:before{counter-increment:v37;content:counter(v37,decimal-leading-zero);font-weight:900;color:#d65a14;margin-right:20px}.v37-hidden{display:none!important}@media(max-width:760px){.v37-feature{grid-template-columns:1fr}.v37-hero{padding-top:22px}.v37-switch{gap:0}.v37-link{font-size:16px}.v37-resource summary{font-size:18px}}
+
+/* v38: prevent global sticky-header rule from pinning the internal page hero.
+   The site navigation stays sticky; page content scrolls normally. */
+.v37-page > header.v37-hero{
+  position:static !important;
+  top:auto !important;
+  z-index:auto !important;
+  width:100%;
+  min-height:0;
+  overflow:visible;
+  isolation:auto;
+}
+.v37-page .v37-switch{
+  position:static !important;
+  clear:both;
+  margin-top:0;
+}
+.v37-page .v37-feature,
+.v37-page .v37-links{position:relative;clear:both}
+@media(max-width:760px){
+  .v37-page .v37-hero h3{font-size:clamp(32px,8vw,46px);line-height:1.15}
+  .v37-page .v37-hero p{font-size:17px;line-height:1.55}
+}
 </style>
 </head>
 <body><a class="skip-link" href="#main-content">Skip to main content</a>
