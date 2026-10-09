@@ -1,1 +1,1 @@
-Version 31 — targeted content and framework corrections. Replace root index.html in GitHub. External link and browser acceptance audits remain separate.
+v58: resource/audience coverage matrix and improved empty-result guidance; full browser acceptance is still blocked by environment policy. Upload index.html to GitHub Pages only after review.
