@@ -428,6 +428,42 @@ a:focus-visible,button:focus-visible{outline:3px solid #F26A21;outline-offset:3p
 @media(max-width:820px){.tool-layout{grid-template-columns:1fr}.tool-rail{position:static}.audience-showcase{grid-template-columns:1fr}.experience-band h3{font-size:32px}}
 @media(prefers-reduced-motion:no-preference){.tool-stage,.experience-band{animation:stageEnter .3s ease both}@keyframes stageEnter{from{opacity:.65;transform:translateY(8px)}to{opacity:1;transform:none}}}
 
+
+/* v35 — MTSS decision canvas: fewer containers, readable contrast, example alongside thinking */
+.v35-intro{background:#0d3155;color:white;border-radius:24px;padding:clamp(26px,4vw,46px);margin:8px 0 24px}
+.v35-intro .eyebrow{color:#ffc69e;font-size:13px;letter-spacing:.12em;font-weight:850}
+.v35-intro h3{font-size:clamp(30px,4.5vw,50px);line-height:1.1;color:white;max-width:830px;margin:14px 0}
+.v35-intro p{color:#e9f2f8;font-size:18px;line-height:1.5;max-width:800px}
+.v35-intro-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px}
+.v35-intro-actions button{background:white;border:0;border-radius:100px;color:#0d3155;padding:11px 19px;font-size:16px;font-weight:800;cursor:pointer}
+.v35-intro-actions span{font-size:14px;color:#e4edf3}
+.v35-progress{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin:0 0 28px}
+.v35-progress button{border:0;border-bottom:4px solid #d8e3e9;background:#f3f7f9;padding:14px 7px;color:#193d58;font-weight:800;font-size:14px;cursor:pointer;text-align:center;border-radius:7px 7px 0 0}
+.v35-progress button span{display:block;font-size:12px;color:#526d7e;margin-bottom:5px}
+.v35-progress button.active{background:#e9f3f9;border-color:#df5b13;color:#092f55}
+.v35-progress button.active span{color:#a53f0b}
+.v35-stage-head{padding:6px 0 20px;border-bottom:1px solid #d6e2e9}
+.v35-stage-head>span{font-size:13px;font-weight:850;letter-spacing:.12em;color:#b14a11}
+.v35-stage-head h3{font-size:clamp(28px,3.7vw,43px);line-height:1.16;color:#0d3155;margin:10px 0}
+.v35-stage-head p{font-size:18px;color:#34536a;line-height:1.5;margin:0}
+.v35-canvas{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px;margin-top:28px;align-items:stretch}
+.v35-work{padding:0 0 10px}
+.v35-work label{display:block;font-size:19px;color:#143955;font-weight:800;margin-bottom:12px}
+.v35-work label small{font-size:14px;font-weight:500;display:block;margin-top:4px;color:#486578}
+.v35-work textarea{display:block;width:100%;min-height:205px;border:2px solid #b5c9d6;border-radius:12px;padding:18px;font:inherit;font-size:17px;color:#123651;background:white;resize:vertical}
+.v35-work select{display:block;width:100%;padding:13px;font-size:17px;margin:12px 0;border:1px solid #b5c9d6;border-radius:9px}
+.v35-guidance{margin-top:16px;border-left:4px solid #d95710;padding:12px 15px;background:#fff6ef;color:#1c3b54;font-size:16px;line-height:1.55}
+.v35-example{background:#edf5f8;border-radius:17px;padding:clamp(22px,3vw,32px);border:1px solid #d1e4ed}
+.v35-example-top{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;font-size:12px;font-weight:850;letter-spacing:.08em;color:#29516a}
+.v35-example h4{font-size:clamp(23px,2.6vw,30px);color:#0d3155;margin:28px 0 14px;line-height:1.2}
+.v35-example p{font-size:18px;line-height:1.6;color:#24455d}
+.v35-example-foot{border-top:1px solid #b9d3df;margin-top:22px;padding-top:14px;font-size:14px;color:#3c6075}
+.v35-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:26px}
+.v35-actions{display:flex;gap:9px;flex-wrap:wrap}
+.v35-actions .action{margin:0;font-size:16px}
+@media(max-width:850px){.v35-progress{grid-template-columns:repeat(3,minmax(0,1fr))}.v35-canvas{grid-template-columns:1fr}.v35-example h4{margin-top:15px}}
+@media(max-width:520px){.v35-progress{grid-template-columns:repeat(2,minmax(0,1fr))}.v35-progress button{font-size:13px}.v35-intro p,.v35-stage-head p,.v35-example p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.v35-progress button{transition:none}}
 </style>
 </head>
 <body><a class="skip-link" href="#main-content">Skip to main content</a>
@@ -1132,8 +1168,30 @@ let v34Step=0;
 function v34Safe(t){return String(t||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function v34Read(key){try{return JSON.parse(localStorage.getItem(key)||'{}')}catch(e){return {}}}
 function v34Store(key,obj){try{localStorage.setItem(key,JSON.stringify(obj));return true}catch(e){return false}}
-function v34MTSS(){v34Step=0;openModal('MTSS Center',`<div class="experience-band"><div class="eyebrow">MTSS / Practical problem-solving</div><h3>Move from concern to coordinated support.</h3><p>Work through a real decision, capture next steps, and return to your draft later on this device. Avoid entering scholar names or sensitive information.</p></div><div class="process">DEFINE NEED → UNDERSTAND → MATCH → IMPLEMENT → MONITOR → DECIDE</div><div class="tool-layout"><aside class="tool-rail"><h3>Explore the process</h3><div id="v34Steps"></div><p style="font-size:14px;color:#526579;margin-top:14px">Your draft is stored only in this browser. Do not enter identifiable scholar information.</p></aside><div class="tool-stage" id="v34Stage" aria-live="polite"></div></div>`);v34DrawMTSS()}
-function v34DrawMTSS(){let buttons=document.getElementById('v34Steps'),area=document.getElementById('v34Stage');if(!buttons||!area)return;buttons.innerHTML=v34Stages.map((x,i)=>`<button aria-pressed="${v34Step===i}" class="${v34Step===i?'active':''}" onclick="v34Move(${i})">${String(i+1).padStart(2,'0')} · ${x[0]}</button>`).join('');const x=v34Stages[v34Step],draft=v34Read('grps-sel-mtss-v34');area.innerHTML=`<div style="font-size:13px;font-weight:850;letter-spacing:.12em;color:#b44b14">STEP ${v34Step+1} OF 6</div><h3>${x[1]}</h3><p>${x[2]}</p><label for="v34Draft">Your working notes (no names or personal information)</label><textarea id="v34Draft" placeholder="Write a concise, non-identifying team note...">${v34Safe(draft[v34Step]||'')}</textarea>${v34Step===5?'<label for="v34Decision">Decision</label><select id="v34Decision"><option>Continue</option><option>Modify</option><option>Intensify</option><option>Fade / Exit</option></select>':''}<div class="tool-note"><strong>Intervention check:</strong> A meeting, referral, or phone call is an action. A planned intervention specifies what changes, who owns it, frequency, and how response is monitored.</div><button class="action" onclick="v34SaveMTSS()">Save draft</button><button class="action secondary" onclick="v34Move(${Math.min(v34Step+1,5)})">${v34Step===5?'Review this step':'Next step →'}</button>${v34Step===5?'<button class="action secondary" onclick="v34Summary()">View planning summary</button>':''}<div id="v34Saved" role="status" style="margin-top:12px;color:#275a45;font-weight:700"></div>`;if(v34Step===5&&draft.decision)document.getElementById('v34Decision').value=draft.decision}
+const v35Examples=[
+  {tag:"Notice the pattern",text:"Illustrative example: A middle-school scholar attended 12 of the past 20 school days. Most absences occurred on Mondays and Tuesdays. The team will examine the pattern without assuming a cause."},
+  {tag:"Listen and examine",text:"Illustrative example: The scholar reports difficulty arriving on time after weekend schedule changes. The family describes transportation uncertainty. The team checks attendance by day and asks what has helped before."},
+  {tag:"Select a response",text:"Illustrative example: The school and family agree on a two-week arrival plan: a named staff contact checks in on Monday mornings, and the family receives transportation-resource information. This is a proposed support, not a diagnosis."},
+  {tag:"Make it workable",text:"Illustrative example: The attendance team lead coordinates the plan; a designated staff member completes the Monday check-in; the family chooses a preferred communication method. The team confirms what actually occurred."},
+  {tag:"Check for change",text:"Illustrative example: Baseline is 12/20 days attended (60%). For the next two weeks, the team reviews daily attendance and whether the agreed supports occurred, then checks in with the scholar and family."},
+  {tag:"Use the evidence",text:"Illustrative example: If attendance improves and the plan is consistently implemented, continue briefly and reassess. If not, revisit the barrier with the scholar and family and modify the support rather than simply adding referrals."}
+];
+let v35ExampleVisible=true;
+function v34MTSS(){
+  v34Step=0;v35ExampleVisible=true;
+  openModal('MTSS Center',`<section class="v35-intro"><div class="eyebrow">MTSS • FROM CONCERN TO ACTION</div><h3>What would help this scholar succeed?</h3><p>Explore an example, consider the evidence, and build a practical support plan. Use non-identifying notes only.</p><div class="v35-intro-actions"><button type="button" onclick="v35ToggleExample()" id="v35ExampleToggle">Hide example</button><span>Example is fictional • Your notes stay in this browser</span></div></section><nav class="v35-progress" id="v34Steps" aria-label="MTSS planning stages"></nav><div id="v34Stage" aria-live="polite"></div>`);
+  v34DrawMTSS();
+}
+function v35ToggleExample(){if(document.getElementById("v34Draft"))v34SaveMTSS();v35ExampleVisible=!v35ExampleVisible;v34DrawMTSS()}
+function v34DrawMTSS(){
+ const buttons=document.getElementById('v34Steps'),area=document.getElementById('v34Stage');if(!buttons||!area)return;
+ buttons.innerHTML=v34Stages.map((x,i)=>`<button type="button" aria-current="${v34Step===i?'step':'false'}" class="${v34Step===i?'active':''}" onclick="v34Move(${i})"><span>${String(i+1).padStart(2,'0')}</span>${x[0]}</button>`).join('');
+ const x=v34Stages[v34Step],ex=v35Examples[v34Step],draft=v34Read('grps-sel-mtss-v34');
+ const example=v35ExampleVisible?`<aside class="v35-example"><div class="v35-example-top"><span>SEE IT IN PRACTICE</span><span>FICTIONAL EXAMPLE</span></div><h4>${ex.tag}</h4><p>${ex.text}</p><div class="v35-example-foot">An example to learn from—not a required response or a completed scholar plan.</div></aside>`:'';
+ area.innerHTML=`<div class="v35-stage-head"><span>FOCUS ${v34Step+1} / 6</span><h3>${x[1]}</h3><p>${x[2]}</p></div><div class="v35-canvas"><div class="v35-work"><label for="v34Draft">Team thinking <small>(no scholar names or identifying details)</small></label><textarea id="v34Draft" placeholder="What do we know, what do we still need to learn, and what will we do?">${v34Safe(draft[v34Step]||'')}</textarea>${v34Step===5?'<label for="v34Decision">Team decision</label><select id="v34Decision"><option>Continue</option><option>Modify</option><option>Intensify</option><option>Fade / Exit</option></select>':''}<div class="v35-guidance"><strong>Keep it actionable.</strong> A referral or meeting alone is not an intervention. Identify the support, owner, frequency, and how progress will be checked.</div></div>${example}</div><div class="v35-bottom"><div id="v34Saved" role="status" aria-live="polite"></div><div class="v35-actions"><button class="action secondary" onclick="v35ToggleExample()">${v35ExampleVisible?'Hide':'Show'} example</button><button class="action secondary" onclick="v34SaveMTSS()">Save notes</button>${v34Step>0?`<button class="action secondary" onclick="v34Move(${v34Step-1})">← Back</button>`:''}<button class="action" onclick="${v34Step===5?'v34Summary()':`v34Move(${v34Step+1})`}">${v34Step===5?'Review plan':'Continue →'}</button></div></div>`;
+ if(v34Step===5&&draft.decision)document.getElementById('v34Decision').value=draft.decision;
+ const toggle=document.getElementById('v35ExampleToggle');if(toggle)toggle.textContent=v35ExampleVisible?'Hide example':'Show example';
+}
 function v34SaveMTSS(){let d=v34Read('grps-sel-mtss-v34');d[v34Step]=document.getElementById('v34Draft')?.value||'';if(v34Step===5)d.decision=document.getElementById('v34Decision')?.value;let ok=v34Store('grps-sel-mtss-v34',d);let el=document.getElementById('v34Saved');if(el)el.textContent=ok?'Saved in this browser.':'Could not save; browser storage may be disabled.'}
 function v34Move(n){v34SaveMTSS();v34Step=n;v34DrawMTSS()}
 function v34Summary(){v34SaveMTSS();let d=v34Read('grps-sel-mtss-v34');let summary=v34Stages.map((s,i)=>`${s[0]}: ${d[i]||'Not yet documented'}`).join('\n\n')+'\n\nDecision: '+(d.decision||'Not selected');document.getElementById('v34Stage').innerHTML=`<h3>Team planning summary</h3><p>Review the notes below. Do not add personally identifying information.</p><textarea id="v34SummaryText" style="min-height:300px" readonly>${v34Safe(summary)}</textarea><button class="action" onclick="v34CopySummary()">Copy summary</button><button class="action secondary" onclick="v34DrawMTSS()">Back to steps</button><div id="v34Saved" role="status"></div>`}
